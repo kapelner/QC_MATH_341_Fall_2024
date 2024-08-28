@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.3.27)  27 AUG 2024 21:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.3.27)  27 AUG 2024 21:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -589,17 +589,27 @@ Overfull \hbox (6.70796pt too wide) in paragraph at lines 12--19
  [][] 
  []
 
-) [1
+)
+Underfull \hbox (badness 10000) in paragraph at lines 39--40
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--40
+
+ []
+
+[1
 
 {C:/Users/kapel/AppData/Local/MiKTeX/2.9/fonts/map/pdftex/pdftex.map}]
 (../../syllabi/_DSS_core.tex
-<../../syllabi/not_recommended_plan.pdf, id=21, 470.7186pt x 435.54718pt>
+<../../syllabi/not_recommended_plan.pdf, id=22, 470.7186pt x 435.54718pt>
 File: ../../syllabi/not_recommended_plan.pdf Graphic file (type pdf)
 <use ../../syllabi/not_recommended_plan.pdf>
 Package pdftex.def Info: ../../syllabi/not_recommended_plan.pdf  used on input 
 line 7.
 (pdftex.def)             Requested size: 433.62pt x 401.23993pt.
-<../../syllabi/recommended_plan.pdf, id=22, 470.7186pt x 616.22218pt>
+<../../syllabi/recommended_plan.pdf, id=23, 470.7186pt x 616.22218pt>
 File: ../../syllabi/recommended_plan.pdf Graphic file (type pdf)
 <use ../../syllabi/recommended_plan.pdf>
 Package pdftex.def Info: ../../syllabi/recommended_plan.pdf  used on input line
@@ -643,7 +653,7 @@ Package rerunfilecheck Info: File `syllabus.out' has not changed.
 Here is how much of TeX's memory you used:
  14549 strings out of 478582
  232973 string characters out of 2852231
- 531673 words of memory out of 3000000
+ 532673 words of memory out of 3000000
  32344 multiletter control sequences out of 15000+600000
  493300 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -671,7 +681,7 @@ Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program F
 iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKT
 eX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fon
 ts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on syllabus.pdf (13 pages, 328622 bytes).
+Output written on syllabus.pdf (13 pages, 328948 bytes).
 PDF statistics:
  664 PDF objects out of 1000 (max. 8388607)
  52 named destinations out of 1000 (max. 500000)
