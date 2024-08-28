@@ -1,0 +1,127 @@
+\begin{enumerate}
+\item[Day 1] [20min] Surveys, populations, sampling, sample size $n$, representativeness, SRS; [30min] definition of parameter, parameter space, inference, statistic, the three goals of statistical inference: point estimation, theory testing and confidence set construction; [20min] Sampling with/without replacement, iid assumption, equivalence of populations and data generating processes (DGPs) [55min] estimators, point estimation metrics: biasedness and unbiasedness, loss functions (absolute, squared error, others), risk function, mean squared error (MSE), bias-variance decomposition of MSE, maximum risk for iid Bernoulli model; 
+
+\item[Day 2] [15min] Comparison of bad estimator with sample average [60min] Introduction to hypothesis testing, the intellectual honesty of assuming the null hypothesis $H_0$, the theory you wish to prove $H_a$, right, left and two-sided tests of single parameters, test statistics, null distributions, retainment and rejection regions, the two test outcomes, statistical significance [15min] the Binomial exact test of one proportion in the iid Bernoulli DGP [15min] size, level, Type I and II errors, $2 \times 2$ confusion table of testing errors, scientific convention of $\alpha$
+
+\item[Day 3] [10min] Facts about normal distributions [30min] Motivation of exact Z tests for one sample with known variance [5min] equivalence of size and level [15min] Fisher's p-value and calculations under normal sampling distributions; [25min] Definition of power, assuming a true sampling ditribution to compute the probability of Type II errors and power [15min] Power function and its inputs [10min] Power convention in study design
+
+% ; [10min] review of central limit theorem (CLT); [20min] employing the CLT to create the approximate one-proportion z-test; [20min] 
+
+\item[Day 4] [20min] $\theta_0$ in one-sided, one-sample tests and a discussion about what \qu{retain} vs \qu{accept} means in the context of scientific theories [10min] Rigorous definition of p-value based on examination of 1-sided tests [15min] the exact two-sample z-test under different variances and shared variance [10min] review of moments, definition of sample moments; [20min] the system of equations yielding the method of moments (MM) estimators [10min] MME for the expectation, MME for the variance [20min] MME for the two parameters in the iid Binomial DGP, nonsensical MME values
+
+\item[Day 5] [5min] Definition of asymptotically normal estimator  [20min] the approximate one-proportion z-test based on the CLT [10min] introduction of the likelihood and its equivalence to the JMF/JDF [15min] definition of argmax in a precalculus context, proof of its invariance under strictly increasing functions [10min] the concept of an maximum likelihood estimator (MLE) and log likelihood's role in finding MLE's [10min] MLE for the iid Bernoulli DGP [10min] MLE for the iid normal DGP's mean and MLE for the iid normal DGP's variance [10min] boundary solution for the MLE of a normal with unknown right-hand side boundary and comparison with the MM
+
+\item[Day 6] [5min] the nonexistence of a minimum MSE estimator [5min] definition of uniformly minimum variance unbiased estimators (UMVUEs)  [5min] definition of the Cramer-Rao Lower Bound (CRLB) [35min] proof of the CRLB, definition of the score function, expectation of the score function is zero, both definitions of Fisher Information, inverse Fisher Information; [10min] proof that the sample average is the UMVUE for the iid Bernoulli DGP [10min] proof that the sample average is the UMVUE for the iid normal DGP [10min] definition of interval estimators, confidence interval (CI) estimator, CI estimates
+
+\item[Day 7] [20min] derivation of the CI estimator using test inversions [10min] the three unsatisfying interpretations of CI estimates [15min] CI estimator for 1-proportion [20min] definition of clinical or practical significance and the eventual rejection (statistical significance) of every $H_0$ with high $n$ [20min] Review of Type I/II errors [20min] multiple hypothesis tests, family-wise error rates (FWER), weak control of FWER
+
+\item[Day 8] [5min] Boole's Inequality [10min] Bonferroni's Correction [10min] Sidak-Dunn correction [30min] Simes procedure [20min] False discovery rate (FDR) vs. FWER [5min] Simes procedure for FDR (Benjamini-Hochberg) [10min] Empirical CDF [20min] Glivenko-Cantelli theorem and the one-sample Kolmogorov-Smirnov test, Kolmogorov distribution and its critical values
+
+
+\item[Day 9] \inblue{Midterm I Review}
+\item[Day 10] \inred{Midterm I}
+
+\item[Day 11] [20min] two-sample Kolmogorov-Smirnov test [40min] two-proportion z-test using CMT+Slutsky theorems [15min] shared average estimator via WLLN [40min] one-proportion CI using CMT+Slutsky theorems
+
+\item[Day 12] [20min] two-proportion CI using CMT+Slutsky theorems [20min] non-parametric Wald Z test for one sample [20min] non-parametric Wald Z test for two samples [10min] unbiasedness of the sample variance estimator, Bessel's correction [10min] statement of the core MLE theorem (asymptotic normality and variance as a function of the Fisher Information) [20min] proof of the core MLE theorem
+
+\item[Day 13] [40min] using the core MLE theorem to construct one-sample tests and one-sample CIs [30min] Example of the core MLE theorem to test the Gumbel parameter [40min] The score test, its proof of its asymptotic normality 
+
+\item[Day 14] [15min] non-closed form MLE for the logistic distribution's mean parameter [40min] example of the score test testing the logistic distribution's mean parameter [10min] likelihood ratio (LR) definition [30min] proof of asymptotic distribution of the scaled log LR using CMT+Slutsky theorems, LR test [10min] iid Bennoulli likelihood ratio statistic [10min] visualizing the Wald, Score and LR tests
+
+\item[Day 15] [10min] Reparameterization of the bernoulli parameter as odds against [30] Delta method and proof of its asymptotic normality [15min] example of inference for log mean [15min] Student's t-test for one sample, critical t values, one-sample confidence intervals [20min] two sample t-tests for equal variances, two-sample confidence intervals [25min] Welch-Satterthwaite approximate 2-sample t-test for unequal variances and confidence interval
+
+\item[Day 16] [10min] Equivalent of Z and chi-squared tests, equivalence of T and F tests [20min] F-test for homogeneity of variances in two iid normal samples [30min] Chi-squared test for goodness-of-fit / multinomial parameter [30min] Chi-squared test of independence [20min] Chi-squared test of homogeneity
+
+\item[Day 17] [15min] DGP as a \qu{model} [30min] Model selection problem, AIC, AICc selection [35min] Problems with frequentism [30min] Introduction to Bayesian inference
+
+\item[Day 18] [30min] Bayesian inference for the bernoulli with a finite set of possible parameters [10min] Laplace's principle of indifference [10min] Maximum a posteriori (MAP) point estimation as the MLE under Laplace [10min] joint data-parameter distribution visualization [10min] principle of indifference on the entire parameter space as the standard uniform [30min] posterior distribution is beta [5min] MAP estimator for beta posterior [10min] proof that minimum mean squared error estimate is the posterior expectation
+
+
+\item[Day 19] \inblue{Midterm II Review}
+\item[Day 20] \inred{Midterm II}
+
+\item[Day 21] [5min] proof that minimum mean absolute error estimate is the posterior median for continuous posteriors [10min] 2-sided credible regions (CRs) as a solution to the confidence set inference question [10min] CRs for the beta posterior with the qbeta function [20min] one-sided hypothesis tests and the definition of the Bayesian p-value [10min] one-sided hypothesis tests for the beta posterior with the pbeta function [10min] two-sided hypotheses tests a choice of the margin of equivalence [10min] two sided hypothesis tests for the beta posterior [5min] two sided hypothesis testing using CRs [10min] general beta prior [5min] conjugacy [5min] pseudodata interpretation of prior hyperparameters 
+
+\item[Day 22] [10min] MMSE as a shrinkage estimator [10min] equivalence of the binomial DGP with the iid bernoulli DGP [20min] definition of the posterior predictive distribution [10min] derivation of the betabinomial posterior predictive distribution in the beta-binomial model [10min] betabinomial model where only one observation is required [30min] reparameterization of the binomial parameter in log-odds and demonstration that principle of indifference is not invariant
+
+\item[Day 23] [30min] binomial vs betabinomial model for birth data, AIC calculation [10min] betaprime conjugacy for binomial model with log odds parameterization [10min] motivation of Jeffrey's procedure to create priors [10min] proof that Jeffrey's procedure works as specified [20min] Jeffrey's prior for the binomial DGP [10min] motivation of Haldane's prior, Haldane's prior for the binomial DGP [10min] discussion of subjective priors [10min] case study of inferring career batting averages using an empirical prior
+
+\item[Day 24] [20min] proof that gamma is conjugate for iid poisson DGP with pseudodata interpretation [10min] Laplace prior for iid poisson DGP [5min] Haldane prior for iid poisson DGP  [20min] Jeffrey's prior for iid poisson DGP [10min] MMSE, MMAE MAP estimator for gamma posteriors [15min] CR's and hypothesis tests for gamma posteriors [10min] posterior predictive distribution as an extended negative binomial distribution for iid poisson DGP with gamma prior [10min] MMSE as a shrinkage estimator for iid poisson DGP with gamma prior [10min] iid normal DGP with variance known proof that prior is normal 
+
+\item[Day 25] [5min] MMSE, MMAE MAP estimator for normal posteriors [5min] MMSE as a shrinkage estimator [5min] CRs and hypothesis tests for normal posteriors  [5min] Laplace and  prior for iid normal DGP with variance known [5min] reparameterization of hyperparameters to reveal pseudodata interpretation [5min] Haldane prior for iid normal DGP with variance known [10min] Jeffrey's prior for iid normal DGP with variance known [5min] posterior predictive distribution is normal for next observation [10min] iid normal DGP with mean known proof that prior is inverse gamma [5min] derivation of inverse gamma's mode [5min] MAP, MMSE and MMAE for inverse gamma posterior [5min] MMSE as a shrinkage estimator [5min] pseudodata interpretation of prior hyperparameters [5min] the problem with Laplace's prior for the iid normal DGP with mean known [5min] Haldane's prior for the iid normal DGP with mean known [10min] Jeffrey's prior for the iid normal DGP with mean known [5min] CR's and hypothesis tests for inverse gamma posteriors [20min] deriving the posterior predictive distribution for next observation as the location-scale Student's T distribution
+
+\item[Day 26] [20min] iid normal DGP proof that normalinversegamma is conjugate [5min] point estimation for multidimensional posteriors [5min] CRs and hypothesis testing for normalinversegamma as too complicated to pursue [5min] Jeffrey's and Haldane's standard prior for the iid normal DGP  [10min] marginal posterior of the mean parameter as  the location-scale Student's T distribution [10min] marginal posterior of the variance parameter as an inverse gamma [30min] posterior predictive distribution for next observation as the location-scale Student's T distribution 
+
+\item[Day 27] [15min] posterior predictive intervals for all models studied [10min] sampling from the normalinversegamma posterior in two ways [30min] Gibbs sampling, sampling from the normalinversegamma posterior via Gibbs sampling [10min] burning Gibbs chains [10min] thinning Gibbs chains [10min] demo of Gibbs sampler for the normalinversegamma model [10min] iid Poisson time-change model [10min] demo of Gibbs sampler for the Poisson time-change model
+
+\item[Day 28] \inblue{Final Review}
+
+
+%\rule{8cm}{0.4pt} \inblue{Done updating until here}
+%
+%\item[Day 4] [15min] The power function for a one-sided z-test; [15min] the iid normal DGP; [15min] exact one-sample z-test with known variance, its power function; [30min] the naive estimator for $\sigma^2$, proof of its biasedness, definition of asymptotic unbiasedness, Bessel's correction and the unbiased sample variance estimator $S^2$; [20min] motivation of the t statistic, Student's t distribution, the one-sample t-test; [20min] the concept of two populations, two sample testing for mean differences, $H_0$ specification for left-sided, right-sided, two sided tests
+%
+%\item[Day 5] [15min] the exact two-sample z-test under different variances and shared variance; [20min] the exact two-sample t-test under shared variance, the pooled standard deviation estimator; [25min] the approximate t-test (Welch-Satterthwaite approximation) under different variances, the Behrens-Fisher distribution; [5min] review of moments, definition of sample moments; [15min] the system of equations yielding the method of moments estimators (MME); [10min] MME for the expectation, MME for the variance; [20min] MME for the two parameters in the iid Binomial DGP, nonsensical MME values
+%
+%\item[Day 6] [10min] MME for the iid Uniform DGP with one unknown endpoint parameter; [10min] definition of likelihood, the equivalence of the likelihood function with the JDF/JMF; [10min] definition of argmax, equivalence of argmax under strictly increasing functions; [10min] definition of maximum likelihood estimators (MLE) and estimates, the log likelihood; [10min] MLE for the iid Bernoulli DGP; [10min] MLEs for the iid Normal DGP; [10min] MLE for iid Uniform DGP with one unknown endpoint parameter; [5min] variances of MME and MLE for that cases
+%
+%\item[Day 7] [5min] definition of relative efficiency and comparison of two estimators; [10min] the nonexistence of a minimum MSE estimator; [5min] definition of uniformly minimum variance unbiased estimators (UMVUEs); [10min] definition of the Cramer-Rao Lower Bound (CRLB), definition of Fisher Information
+%
+%\item[Day 8] [55min] proof of the CRLB, definition of the score function, expectation of the score function is zero; [10min] proof that the sample average is the UMVUE for the iid Bernoulli DGP; [15min] proof that the sample average is the UMVUE for the iid normal DGP; [10min] definition of asymptotically normal estimators; [15min] definition of consistent estimators, continuous mapping theorem, Slutsky's theorem
+%
+%
+%
+%
+%
+%
+%
+%
+%%85min
+%\item[Day 11] [10min] asymptotic normality of asymptotically normal estimators when using the estimator for its standard error; [5min] statement of main theorem for MMEs and MLEs: consistency, asymptotic normality, asymptotic efficience of the MLE; [5min] review of Taylor series; [40min] proof that the MLE is asymptotically normal and asmyptotically efficient; [5min] definition of the Wald test, the one-proportion z-test as a Wald test; [5min] the one-sample t-test as an approximate one-sample z-test (Wald test);
+%
+%
+%%65min
+%\item[Day 12] [15min] derivation of the MLE, Fisher Information and a Wald test for the iid Gumbel DGP with known scale parameter; [15min] introduction to confidence sets, interval estimators, coverage probability; [20min] definition of the confidence interval (CI), CI construction via hypothesis test inversion; [10min] comparison of hypothesis testing with CI construction; [15min] approximate CIs for the iid normal DGP under the four assumptions; [10min] CI for one proportion; [10min] CIs for MLEs; [10min] demonstration that MSE improvements improve all three statistical inference goals, illustration of all three goals
+%
+%%85min
+%\item[Day 13]  [10min] meaninglessness of single inferences; [5min] odds-against reparameterization, odds-against point estimation; [15min] univariate delta method; [10min] CI for odds-against via delta method, CI for log-mean; [10min] risk ratio versus proportion difference; [20min] multivariate delta method; [5min] CI for the risk ratio; [25min] statistical significance vs. clinical / practical significance of the effect
+%
+%%65min
+%\item[Day 14] [30min] Problems and limitations with frequentist CIs and testing, valid interpretation of frequentist CIs, the frequentist p-value; [35min] review of definition of conditional probability, Bayes Rule, Bayes Theorem; [10min] marginal and conditional PMFs; [10min] Bayes rule for two rvs; [10min] anatomy of the Bayes identity: the likelihood, prior, prior predictive distribution and posterior distribution
+%
+%\item[Day 15] [40min] example posterior calculation with discrete parameter space and principle of indifference; [15min] Bayesian point estimation with the maximum a posteriori (MAP) estimate, conditions for equivalence with the MLE; [25min] Proof that Bayesian Inference is iterative in the data; [15min] uniform prior for the bernoulli iid model; [10min] Bayesian point estimation with the posterior median and posterior expectation
+%
+%\item[Day 16] [20min] derivation of general beta posterior for the bernoulli iid model, intro to beta distribution, beta function, gamma function; [5min] point estimation with beta posterior; [10min] all legal shapes of the beta distribution; [35min] the beta-binomial bayesian model; prior parameters (hyperparameters) and posterior parameters, point estimates; [10min] definition of conjugacy, beta-binomial conjugacy; [10min] pseudodata interpretation of the prior parameters; [10min] shrinkage estimators and the beta-binomial posterior expectation as a shrinkage estimator
+%
+%%80min
+%\item[Day 17] [15min] One-sided and two-sided credible regions (CRs); [5min] CR for beta-binomial model; [10min] high density regions; [10min] decisions in the Bayesian framework for one-sided hypothesis testing, Bayesian p-values; [15min] beta-binomial examples; [20min] two approaches for two-sided testing in the Bayesian framework; [30min] posterior predictive distribution formula, example for one future observation in the beta-binomial model
+%
+%%70min
+%\item[Day 18] [15min] mixture and compound distributions;  [65min] the betabinomial distribution as an overdispersed binomial, example with birth data, proof of the general posterior predictive distribution for the beta-binomial model; [10min] Laplace and Haldane priors; [20min] Informative priors for the beta-binomial model, example with baseball batting averages, shrinkage in informative priors, empiral Bayes estimation
+%
+%\item[Day 19] \inblue{Midterm II Review (Monday, Nov 6)}
+%\item[Day 20] \inred{Midterm II  (Wednesday, Nov 8)}
+%
+%\item[Day 21]  [10min] definition of odds, reparameterization of the binomial with odds; [5min] PDF change of variables formula, proof that prior of indifference for binomial probability is not prior of indifference for odds; [15min] Jeffrey's prior specification concept; [10min] PDF/PMF decomposition into kernel and normalization constants; [10min] definition of Fisher information, computation of Fisher information for the binomial distribution; [30min] Definition of Jeffrey's prior, derivation of Jeffrey's prior for the beta-binomial model, verification that it robust to reparameterizations of the binomial model's parameter; [10min] proof of Jeffrey's prior satisfies  Jeffrey's prior specification concept;
+%
+%
+%\item[Day 22] [10min] derivation of Poisson model; [15min] derivation of the Poisson model's conjugate prior via kernel decomposition (the Gamma); [20min] Gamma shapes and properties; [15min] pseudodata interpretation of hyperparameters in the gamma-poisson model; [20min] derivation of the shrinkage point estimator for the gamma-poisson model; [10min] CRs for the gamma-poisson model; 
+%
+%\item[Day 23] [20min] uninformative priors for the gamma-poisson model [45min] derivation of the posterior predictive distribution being extended negative binomial in the gamma-poisson model; [20min] kernel decomposition of the normal PDF; 
+%
+%\item[Day 24] [35min] derivation of the normal-normal conjugate model, pseudodata interpretation of the hyperparameters; [20min] Haldane prior for normal-normal model, point estimation in the normal-normal model, Jeffrey's prior derivation, shrinkage estimator; [40min] derivation of the normal posterior predictive distribution for the normal-normal model; [10min] derivation of the inversegamma distribution, properties of the inverse gamma distribution [35min] normal-inversegamma model, laplace prior, pseudodata interpretation of the hyperparameters, haldane prior
+%
+%%70min
+%\item[Day 25] [75min] The two-dimensional  normal-inverse-gamma (NIG) distribution, its kernel, its use in bayesian inference for the conjugate NIG-NIG model; [15min] Marginal mean T distribution in the NIG posterior; [15min] Marginal variance inverse-gamma distribution in the NIG posterior
+%
+%
+%%75min
+%\item[Day 26] [55min] derivation of the Student's T posterior predictive distribution in the NIG-NIG model; [30min] Sampling from the NIG distribution; [25min] the kernel of the semiconjugate NIG model
+%
+%%80min
+%\item[Day 27] [35min] concept of assuming DGP models, discussion of what models are, discussion of many model candidates; [15min] model selection via largest likelihood, asymptotic bias of the log-likelihood estimator with substituted MLEs; [15min] the AIC metric, AIC model selection algorithm, penalizing complexity; [10min] the AICC metric; [10min] the BIC metric; [10min] Akaike weights
+%
+%\item[Day 28] \inblue{Final Review}
+
+\end{enumerate}

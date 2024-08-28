@@ -1,0 +1,128 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=0.9in]{geometry}
+\input{../../syllabi/preamble}
+
+%%edit these!!
+\newcommand{\coursedept}{Math}
+\newcommand{\coursenumber}{341}
+\newcommand{\professorname}{Adam Kapelner, PhD.}
+\newcommand{\professorcontactinfo}{kapelner@qc.cuny.edu}
+\newcommand{\professoroffice}{604 Kiely Hall}
+\newcommand{\sixhundredsection}{641}
+\newcommand{\coursenumbercrosslisted}{/ 641}
+\newcommand{\semester}{Fall}
+\newcommand{\numcredits}{4}
+\newcommand{\lectimeandloc}{Mon and Wed 6:30 -- 8:20PM / KY 277}
+\newcommand{\requiredlabtimeandloc}{}
+\newcommand{\tataofficehourtimeandloc}{N/A}
+\newcommand{\numtheoryhws}{6--9}
+\newcommand{\numhrshwsrange}{8--10}
+\newcommand{\numhrshwtarget}{9}
+\newcommand{\lastdatetimetohandinhomeworks}{Dec 15 at noon}
+\newcommand{\midtermonedateandlocation}{Thursday, October 7 on zoom during class time}
+\newcommand{\midtermtwodateandlocation}{Thursday, November 11 on zoom during class time}
+\newcommand{\finaldateandlocation}{TBD but on zoom}
+
+%%%unchanged
+\newcommand{\coursewebpageurl}{https://github.com/kapelner/QC_\coursedept_\coursenumber_\semester_\the\year}
+\newcommand{\coursewebpagelink}{\href{\coursewebpageurl}{course homepage}}
+\newcommand{\slackurl}{https://QC\coursedept\coursenumber\semester\the\year.slack.com/}
+\newcommand{\slacklink}{\href{\slackurl}{slack}}
+
+\input{../../syllabi/_header}
+
+
+
+\section*{Course Overview}
+
+MATH 341 / 641. Statistical Theory for Data Science. 4 hr.; 4 cr. Coreq.: MATH 340 or 640.  Sampling, point estimation via method of moments and maximum likelihood, loss and risk, bias-variance decomposition, frequentist confidence intervals, frequentist hypothesis testing, the p-value, type I/II errors, power, the testing problem, the model selection problem, confounding, randomized experimentation and causality, Bayesian inference, prior distribution specification, conjugacy, Bayesian point estimation, credible regions, posterior predictive distribution, Beta-Binomial and Normal-Inverse-Gamma model, consistency, Cramer-Rao lower bound, delta method. Not open to students who are taking or who have received credit for MATH 341. Students cannot receive credit for both: MATH 341 and 641. Fall, Spring \pagebreak
+
+\input{../../syllabi/_DSS_core}
+
+Examining the above, we note that MATH 341 and 343 form a series of two statistics courses: the first, theoretical with traditional topics and the second, computational with modern topics. Both heavily rely on the theoretical topics taught in MATH 340. \pagebreak
+
+\section*{Tentative Day-by-Day Schedule}
+
+Lectures and their topics with rough time estimates per topic are below:
+
+\input{_lecture_schedule}
+
+\textbf{This is more of a typical mathematics theory course than the rest of the data science series.} But we will still attempt to keep our eye on developing ideas and concepts for helping to make decisions in the real world. Thus we may make limited use of computation using the \texttt{R} statistical language.
+
+\subsection*{Corequisites}
+
+MATH 340 or an intermediate probability class that covers similar topics. Critical is coverage of the Central Limit Theorem, convergence in probability, Slutsky's theorem, Cochran's theorem.
+
+\section*{Course Materials}
+
+\paragraph{Textbooks:} For the first 2/3 of the class, we will be doing classical or \qu{Frequentist Inference}. Here, I will be referencing Larry Wasserman's \emph{All of Statistics: A concise course in statistical inference} which can be purchased on \href{https://www.amazon.com/dp/0387402721}{Amazon} and Casella and Berger's \emph{Statistical Inference} which can be purchased on \href{https://www.amazon.com/dp/8131503941}{Amazon}. There is no excuse not to have these books. They are \textit{required}. However, I will not ususally be teaching \qu{from the book} --- most of the material in the class comes from the lecture notes. The textbooks are a way to get ``another take'' on the material and they will only cover about only half of the material done in class. For the other half, you will have to make use of other resources. I also recommend Rice's \emph{Mathematical Statistics and Data Analysis}, 3rd edition which can be purchased on \href{https://www.amazon.com/dp/0534399428}{Amazon} as well but I will not reference it during class. When the class transitions to the last third, we will switch to \qu{Bayesian Inference}. A good introductory book is \emph{Introduction to Bayesian Statistics} by William M. Bolstad First Edition. It can be purchased used on \href{https://www.amazon.com/dp/0471270202}{Amazon}. This is \textit{recommended}. The Bayesian Bible is \emph{Bayesian Data Analysis} by Andrew Gelman et al. which can be purchased on \href{https://www.amazon.com/dp/1439840954}{Amazon} as well. This latter book is very dense and we will only scratch the surface of its topics in this class. Note that these books constitute a means to get ``another take'' on the material. However, most of the material in the class comes from the lecture notes.
+
+\paragraph{Popular Books:} For the first Frequentist section of the class, I recommend \emph{The Lady Tasting Tea} by David Salsburg which can be purchased on \href{https://www.amazon.com/dp/0805071342}{Amazon}. For the Bayesian section of the class, I recommend \emph{The Theory that Would not Die: How Bayes' Rule Cracked the Enigma Code, Hunted Down Russian Submarines, and Emerged Triumphant from Two Centuries of Controversy} by Sharon B. McGrayne which can be purchased on \href{https://www.amazon.com/dp/0300188226}{Amazon}.
+
+\input{../../syllabi/_R_lang}
+\input{../../syllabi/_calculator}
+
+
+
+\input{../../syllabi/_the650section}
+
+
+\input{../../syllabi/_use_of_slack}
+
+\input{../../syllabi/_announcements_on_slack}
+
+\input{../../syllabi/_standard_class_meetings}
+
+\input{../../syllabi/_jewish_holiday_reschedule}
+
+%\input{../../syllabi/_zoom_policies}
+
+%\input{../../syllabi/_lecture_upload}
+
+\section*{Homework}
+
+\input{../../syllabi/_theory_hws_text}
+
+\input{../../syllabi/_theory_hws_submission_text}
+\input{../../syllabi/_philosophy_hws}
+
+\input{../../syllabi/_time_spent_hws}
+
+\input{../../syllabi/_late_hw_policy}
+
+\input{../../syllabi/_latex_hw_bonus_policy}
+
+\input{../../syllabi/_hw_ec_policy}
+
+\section*{Examinations}
+
+\input{../../syllabi/_examination_text}
+
+\input{../../syllabi/_standard_exam_schedule}
+
+\subsection*{Exam Policies and Materials}
+
+\input{../../syllabi/_examination_policies}
+
+%\input{../../syllabi/_zoom_examination_policies}
+
+\input{../../syllabi/_standard_cheat_sheet_policy}
+
+
+\input{../../syllabi/_cheating_on_exams_and_missing_exams}
+\input{../../syllabi/_special_services}
+
+\input{../../syllabi/_class_participation}
+
+%\input{../../syllabi/_zoom_attendance}
+
+\input{../../syllabi/_standard_grading_and_grading_policy}
+
+\input{../../syllabi/_advanced_course_grade_distribution}
+
+\input{../../syllabi/_grade_checking_on_gradesly}
+
+\input{../../syllabi/_auditing_policy}
+
+\end{document}
