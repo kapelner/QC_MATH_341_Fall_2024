@@ -42,8 +42,8 @@ My lecture notes are scanned in as PDF files contributed by myself.
 * Homework 6 [(download)](https://github.com/kapelner/QC_MATH_341_Fall_2024/blob/main/homeworks/hw06/hw06.pdf?raw=true) [(view)](https://github.com/kapelner/QC_MATH_341_Fall_2024/blob/main/homeworks/hw06/hw06.pdf) (due 12/4)
 * Homework 5 [(download)](https://github.com/kapelner/QC_MATH_341_Fall_2024/blob/main/homeworks/hw05/hw05.pdf?raw=true) [(view)](https://github.com/kapelner/QC_MATH_341_Fall_2024/blob/main/homeworks/hw05/hw05.pdf) (due 11/16)
 * Homework 4 [(download)](https://github.com/kapelner/QC_MATH_341_Fall_2024/blob/main/homeworks/hw04/hw04.pdf?raw=true) [(view)](https://github.com/kapelner/QC_MATH_341_Fall_2024/blob/main/homeworks/hw04/hw04.pdf) (due 11/2)
-* Homework 3 [(download)](https://github.com/kapelner/QC_MATH_341_Fall_2024/blob/main/homeworks/hw03/hw03.pdf?raw=true) [(view)](https://github.com/kapelner/QC_MATH_341_Fall_2024/blob/main/homeworks/hw03/hw03.pdf) (due 10/8)
-* Homework 2 [(download)](https://github.com/kapelner/QC_MATH_341_Fall_2024/blob/main/homeworks/hw02/hw02.pdf?raw=true) [(view)](https://github.com/kapelner/QC_MATH_341_Fall_2024/blob/main/homeworks/hw02/hw02.pdf) (due 9/20)-->
+* Homework 3 [(download)](https://github.com/kapelner/QC_MATH_341_Fall_2024/blob/main/homeworks/hw03/hw03.pdf?raw=true) [(view)](https://github.com/kapelner/QC_MATH_341_Fall_2024/blob/main/homeworks/hw03/hw03.pdf) (due 10/8)-->
+* Homework 2 [(download)](https://github.com/kapelner/QC_MATH_341_Fall_2024/blob/main/homeworks/hw02/hw02.pdf?raw=true) [(view)](https://github.com/kapelner/QC_MATH_341_Fall_2024/blob/main/homeworks/hw02/hw02.pdf) (due 9/23)
 * Homework 1 [(download)](https://github.com/kapelner/QC_MATH_341_Fall_2024/blob/main/homeworks/hw01/hw01.pdf?raw=true) [(view)](https://github.com/kapelner/QC_MATH_341_Fall_2024/blob/main/homeworks/hw01/hw01.pdf) (due 9/9)
 
 
@@ -71,10 +71,10 @@ Location: KY 258
 
 ## Change of Schedule
 
-For religious reasons, I cannot attend the lectures on Thursday, Oct 17 and Thursday Oct 24. I anticipate making up these sessions on:
+For religious reasons, I cannot attend the lectures on Thursday, Oct 17 and Thursday Oct 24. Make up sessions are below
 
-* Tuesday, Oct 15. This day is a "Monday" schedule at CUNY. We will be voting on time slots on slack.
-* Wednesday, Nov 27. This day is a "Friday" schedule at CUNY (as it's the Wednesday before Thanksgiving). We will be voting on time slots on slack.
+* Tuesday, Oct 15. This day is a "Monday" schedule at CUNY. Class will be from 8:15PM-10:05PM in KY250.
+* Final review session in December TBD
 
 ## Grades and Class Standing
 
