@@ -1,0 +1,219 @@
+\documentclass[12pt]{article}
+
+\include{preamble}
+
+\newtoggle{professormode}
+\toggletrue{professormode} %STUDENTS: DELETE or COMMENT this line
+
+
+
+\title{MATH 341/641 Fall \the\year{} Homework \#3}
+
+\author{Professor Adam Kapelner} %STUDENTS: write your name here
+
+\iftoggle{professormode}{
+\date{Due by email 11:59PM October 7, \the\year{} \\ \vspace{0.5cm} \small (this document last updated \today ~at \currenttime)}
+}
+
+\renewcommand{\abstractname}{Instructions and Philosophy}
+
+\begin{document}
+\maketitle
+
+\iftoggle{professormode}{
+\begin{abstract}
+The path to success in this class is to do many problems. Unlike other courses, exclusively doing reading(s) will not help. Coming to lecture is akin to watching workout videos; thinking about and solving problems on your own is the actual ``working out.''  Feel free to \qu{work out} with others; \textbf{I want you to work on this in groups.}
+
+Reading is still \textit{required}. For this homework set, review MATH 340 concepts: random variables, PMF's, PDF's and the normal distribution. 
+
+The problems below are color coded: \ingreen{green} problems are considered \textit{easy} and marked \qu{[easy]}; \inorange{yellow} problems are considered \textit{intermediate} and marked \qu{[harder]}, \inred{red} problems are considered \textit{difficult} and marked \qu{[difficult]} and \inpurple{purple} problems are extra credit. The \textit{easy} problems are intended to be ``giveaways'' if you went to class. Do as much as you can of the others; I expect you to at least attempt the \textit{difficult} problems. \qu{[MA]} are for those registered for 621 and extra credit otherwise.
+
+This homework is worth 100 points but the point distribution will not be determined until after the due date. See syllabus for the policy on late homework.
+
+Up to 5 points are given as a bonus if the homework is typed using \LaTeX. Links to instaling \LaTeX~and program for compiling \LaTeX~is found on the syllabus. You are encouraged to use \url{overleaf.com}. If you are handing in homework this way, read the comments in the code; there are two lines to comment out and you should replace my name with yours and write your section. The easiest way to use overleaf is to copy the raw text from hwxx.tex and preamble.tex into two new overleaf tex files with the same name. If you are asked to make drawings, you can take a picture of your handwritten drawing and insert them as figures or leave space using the \qu{$\backslash$vspace} command and draw them in after printing or attach them stapled.
+
+The document is available with spaces for you to write your answers. If not using \LaTeX, print this document and write in your answers. I do not accept homeworks which are \textit{not} on this printout. Keep this first page printed for your records.
+
+\end{abstract}
+
+\thispagestyle{empty}
+\vspace{1cm}
+NAME: \line(1,0){380}
+\clearpage
+}
+
+
+
+
+\problem{Remember the male student height data: $n=13$ and $\xbar = 68.85''$. We want to test at $\alpha = 1\%$ if the population that this sample was drawn from has a \emph{different} mean than the American male height mean of 69.92'' for ages 20-29 (this measurement is from more exact studides gathered from \href{https://www.healthline.com/health/average-height-for-men\#united-states}{this article}). You can assume that the true variance of the population if 4in$^2$ but \textit{do not assume} the DGP is normal!}
+
+\begin{enumerate}
+
+\easysubproblem{Write the alternative and null hypotheses.}\spc{1}
+
+\intermediatesubproblem{Do we know the null distribution exactly? Why or why not?}\spc{2}
+
+\easysubproblem{Write the approximate null sampling distribution on the original scale (i.e. in inches).}\spc{2}
+
+\easysubproblem{Write the RET region as a set on the original scale.}\spc{2}
+
+\easysubproblem{Is it possible to provide the exact $\prob{\text{Type I error}}$? Yes / no}\spc{-0.5}
+
+\easysubproblem{What is the approximate $\prob{\text{Type I error}}$ in this test?}\spc{-0.5}
+
+\easysubproblem{Is it possible to provide the exact p-val? Yes / no}\spc{-0.5}
+
+\easysubproblem{Calculate the approximate p-val for this test.}\spc{2}
+
+\easysubproblem{Is the dataset's estimate \qu{statistically significant}? Yes / no}\spc{-0.5}
+\easysubproblem{Was this an exact test? Yes / no}\spc{-0.5}
+\easysubproblem{Write a conclusion of this test in English.}\spc{2}
+
+\intermediatesubproblem{Regardless of what the test's decision came out to be, assume $H_0$ is rejected. Is the dataset's estimate \qu{practically significant} (or \qu{clinically significant})? Discuss.}\spc{3}
+
+\intermediatesubproblem{With a very large sample size, would $H_0$ always be rejected? Discuss.}\spc{3}
+
+\easysubproblem{Imagine you could assume the sample was drawn $\iid$ from a normal distribution. Create a 95\% 2-sided CI for the mean height for all 300-level STEM courses at CUNY.}\spc{3}
+
+
+\intermediatesubproblem{Without assuming the sample was drawn $\iid$ from a normal distribution, what would be the problem with building a CI?}\spc{2}
+
+\easysubproblem{Does the CI include $\theta_0$? Yes / no / maybe}\spc{-0.5}
+\intermediatesubproblem{Does the CI include $\theta$? Yes / no / maybe}\spc{-0.5}
+
+\end{enumerate}
+
+
+
+
+\problem{Here we will investigate MLE's and UMVUEs.}
+
+\begin{enumerate}
+
+\inthenotessubproblem{Assume the DGP: $\Xoneton \iid \bernoulli{\theta}$. Find the MLE for $\theta$.}\spc{4}
+
+\inthenotessubproblem{Prove the MLE from from the previous problem is a UMVUE.}\spc{6}
+
+\intermediatesubproblem{Assume the DGP: $\Xoneton \iid \exponential{\theta} := \theta e^{-\theta x} \indic{x>0}$. Find the MLE for $\theta$.}\spc{10}
+
+\intermediatesubproblem{Now assume a different parameterization of the DGP, $\Xoneton \iid \exponential{1 / {\theta}}$. Find the MLE for $\theta$.}\spc{6}
+
+
+\hardsubproblem{Prove the MLE from from the previous problem is a UMVUE.}\spc{10}
+
+\end{enumerate}
+
+
+\problem{Here we will get more practice with MM estimators}
+
+\begin{enumerate}
+\hardsubproblem{Consider the DGP $\Xoneton \iid \gammanot{\theta_1}{\theta_2}$. Below are some facts about this distribution that I took from \href{https://en.wikipedia.org/wiki/Beta_distribution}{wikipedia}:
+
+\beqn
+\gammanot{\theta_1}{\theta_2} &:=& \frac{\theta_2^{\theta_1}}{\Gammaf{\theta_1}}x^{\theta_1 - 1} e^{-\theta_2 x}\indic{x > 0}, ~~\support{X} = (0, \infty), ~~ \theta_1, \theta_2 \in (0, \infty), \\
+\expe{X} &=&\int_0^{\infty} x f^{old}(x)dx = \frac{\theta_1}{\theta_2}, \\
+\var{X} &=&\int_0^{\infty} (x - \expe{X})^2 f^{old}(x)dx = \frac{\theta_1}{\theta_2^2}
+\eeqn
+
+Find MM estimators for both parameters. Hint: leave expressions in terms of $\sigsqhat$.}\spc{8}
+
+%set.seed(1984); paste0(round(rgamma(7,5,10),3), collapse = ", ")
+\easysubproblem{Provide point estimates $\thetahathat_1$ and $\thetahathat_2$ for the unknown parameters $\theta_1$ and $\theta_2$ given the dataset $\x = <10.8, 8.5, 13.2, 9.1, 13.5, 11.2, 7.1>$ for the $\iid \gammanot{\theta_1}{\theta_2}$ DGP. No need to show work.}\spc{2}
+
+
+\hardsubproblem{[MA] In Math 241 you learned about expectation and variance where expectation was a measure of central tendency of a distribution and variance is a measure of dispersion around that central tendency. The next most important metric for rv's is probably its \emph{skewness} defined as $\gamma := \skewness{X} := \expe{\tothepow{\frac{X - \expe{X}}{\sd{X}}}{3}}$ where SD refers to standard deviation. Skewness is technically the third standardized moment since $\frac{X - \expe{X}}{\sd{X}}$ is the distribution standardized and then the third power is taken. Skewness is a metric of which tail of the distribution is longer and by how much as seen in the first figure \href{https://codeburst.io/2-important-statistics-terms-you-need-to-know-in-data-science-skewness-and-kurtosis-388fef94eeaa}{here}. Since third powers are both positive and negative, skewness can be both positive and negative (and zero if the distribution is symmetric with right and left tails the same).  In class, we derived nonparametric MM estimators $\Xbar$ and $\sigsqhat$ for the expectation and variance (nonparametric meaning that the derivation for them was for \textit{all} iid DGP's). Show that the nonparametric MM estimator for skewness is:
+
+\beqn
+\hat{\gamma} = \sqrt{n}\frac{\sum_{i=1}^n (X_i - \Xbar)^3
+}{
+\tothepow{\sum_{i=1}^n (X_i - \Xbar)^2}{3/2}
+}
+\eeqn
+
+Hint: assume a iid DGP with density / mass function $f(\theta_1, \theta_2, \theta_3)$ where $\theta_1$ is the expectation, $\theta_2$ is the variance and $\theta_3$ is the skewness.
+}\spc{18}
+
+
+\end{enumerate}
+
+\problem{We will prove some of the main theorems of this class (and some other relevant facts) here.}
+
+
+\begin{enumerate}
+
+
+\inthenotessubproblem{Prove the CRLB from scratch. Justify each step. List assumptions.}\spc{22}
+
+
+
+
+\hardsubproblem{Prove that Fisher Information which is defined as $I(\theta) := \expe{\ell'(\theta; X)^2}$, the expected score squared, is equal to $\expe{-\ell''(\theta; X)}$. If you make any assumptions proving this, indicate it so. This is not easy. I suggest you try a bunch of manipulations that you saw performed in the proof of the CRLB and try out many of the definitions of $S$ from class.}\spc{10}
+
+
+\end{enumerate}
+
+
+
+\problem{This problem will be about the multiple testing / multiple comparisons problem in general.}
+
+
+\begin{enumerate}
+
+\intermediatesubproblem{Let's say we define a family of $m$ tests. Draw the 2 $\times$ 2 table from class that accounts for the taillies of the four possibilities (decision $\times$ truth). Indicate which quantities you observe. Indicate which quantities you do not observe. Denote random quantities with an uppercase letter. Denote constants with a lowercase later. Make up letters if we did not have letters for each of the four boxes.}\spc{5}
+
+\easysubproblem{In the case where all $m$ $H_0$'s are true, redo (a).}\spc{2.5}
+
+%\easysubproblem{In the case where all $m$ $H_0$'s are true and the $m$ tests are independent, prove that the $m$ p-values are realizations from $\mathcal{P}_1, \ldots, \mathcal{P}_m \iid \stduniform$ (a).}\spc{3}
+
+\easysubproblem{Define FWER, FDP and FDR using notation and in your own words.}\spc{6}
+
+\intermediatesubproblem{Describe a scenario where you would want FWER $\leq 1\%$.}\spc{3}
+
+\intermediatesubproblem{Describe a scenario where you would want FDR $\leq 1\%$.}\spc{3}
+
+\easysubproblem{Prove that FWER = FDR when all $m$ $H_0$'s are true.}\spc{5}
+
+%\easysubproblem{Prove an upper bound on FWER when all $m$ $H_0$'s are true but the tests are dependent. Using this bound, give an expression for $\alpha$, the p-value rejection threshold for an individual test. What is this expression called?}\spc{6}
+
+%\easysubproblem{Prove an upper bound on FWER when all $m$ $H_0$'s are true but the tests are \emph{in}dependent. Using this bound, give an expression for $\alpha$, the p-value rejection threshold for an individual test. What is this expression called?}\spc{6}
+
+\easysubproblem{Describe the Simes procedure in detail. What is the threshold it rejects at?}\spc{6}
+
+\easysubproblem{Describe what the Benjamini-Hochberg procedure accomplishes in detail (not the procedure itself, as the procedure itself is the Simes procedure).}\spc{5}
+
+\extracreditsubproblem{Prove that Simes controls FWER when all $m$ $H_0$'s are true.}\spc{10}
+
+\easysubproblem{Recall the IPMC data from research into mouse sexual dimorphism in genetic knockouts. There are $m = 172,328$ tests and we investigated the naive, Bonferroni, Sidak and Simes for weak FWER control and the Benjamini-Hochberg procedure for FDR control. We wanted FWER and FDR control of 5\% in this demo. 
+
+We looked at the illustration below during lecture. Identify the red line, the yellow line (which is actually two different things), the green line and the black line by writing atop the illustration. Then, indicate and give a numerical estimate to the number of rejections for the naive procedure of setting $\alpha = 5\%$ for all $m$ tests. Then indicate and give a numerical estimate to the number of rejections for the Bonferroni procedure. Then indicate and give a numerical estimate to the number of rejections for the Simes / Benjamini-Hochberg procedure.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=7in]{pvals}
+\end{figure}}~\spc{2}
+
+\easysubproblem{Compute the Bonferroni threshold.}\spc{2}
+
+\easysubproblem{Compute the Sidak $\alpha$ threshold. Ensure that the Bonferroni threshold is smaller than the Sidak threshold.}\spc{4}
+
+\easysubproblem{The Simes $\alpha$ threshold is 0.00262. Would that yield more rejections than Bonferroni? Yes / No.}\spc{-0.5}
+
+\easysubproblem{Employing the Benjamini-Hochberg procedure, what does your number of rejections mean? Explain and be specific.}\spc{3}
+
+\intermediatesubproblem{Why do you think the Benjamini-Hochberg procedure to control FDR has had such a huge impact on science?}\spc{3}
+
+\easysubproblem{We looked at the illustration below during lecture, the histogram of the pvals. 
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=7in]{hist_pvals}
+\end{figure}
+
+Do you believe that all $H_0$'s are true? Yes / No.}\spc{-0.5}
+
+\hardsubproblem{Do you think that Bonferroni / Sidak / Simes are more conservative now that you've seen the plot? Explain}\spc{4}
+
+
+\end{enumerate}%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
