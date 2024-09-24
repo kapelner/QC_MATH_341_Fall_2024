@@ -1,13 +1,13 @@
-m = 100
+m = 200
 #assume all nulls are true => pvals are realizations from iid standard uniform
 set.seed(1)
 ps = runif(m)
-#Let some be real!
+#Let some be real! If these aren't found => type II errors
 ps[1] = .0010
-ps[2] = .0011
-ps[3] = .0012
-ps[4] = .0013
-ps[5] = .0014
+ps[2] = .0009
+ps[3] = .0008
+ps[4] = .0007
+ps[5] = .0006
 ps
 
 #set my familywise error rate
@@ -17,7 +17,7 @@ FWER_0 = 0.05
 tests_rejected_naively = which(ps < FWER_0)
 ps[tests_rejected_naively]
 length(tests_rejected_naively)
-#there are seven Type I errors / false rejections / false discoveries
+#there are 4 Type I errors / false rejections / false discoveries, zero Type II errors
 
 
 #Bonferroni procedure. Set FWER = alpha above and adjust the per-test alpha
@@ -25,6 +25,7 @@ alpha_bonferroni = FWER_0 / m
 alpha_bonferroni
 tests_rejected_bonferroni = which(ps < alpha_bonferroni)
 length(tests_rejected_bonferroni)
+#zero Type I errors, five Type II errors
 ps_bonferroni_adj = ps * FWER_0 / alpha_bonferroni
 sort(ps_bonferroni_adj)
 
@@ -33,6 +34,7 @@ alpha_sidak = 1 - (1 - FWER_0)^(1 / m)
 alpha_sidak
 tests_rejected_sidak = which(ps < alpha_sidak)
 length(tests_rejected_sidak)
+#zero Type I errors, five Type II errors
 ps_sidak_adj = ps * FWER_0 / alpha_sidak
 sort(ps_sidak_adj)
 
@@ -43,17 +45,18 @@ ps_sorted
 alpha_stepped_up_thresholds = FWER_0 * (1 : m) / m 
 alpha_stepped_up_thresholds
 p_indicies_smaller_than_thresholds = which(ps_sorted < alpha_stepped_up_thresholds)
-p_indicies_smaller_than_thresholds
 a_star = max(p_indicies_smaller_than_thresholds)
 a_star
+#zero Type I errors, zero Type II errors
 
 pacman::p_load(ggplot2)
 ggplot(data.frame(test_number = 1 : m, ordered_pvals = ps_sorted, alpha_stepped_up_thresholds = alpha_stepped_up_thresholds)) + 
   geom_point(aes(x = test_number, y = ordered_pvals)) + 
-  # scale_y_log10() +
+  scale_y_log10() +
   geom_hline(yintercept = FWER_0, col = "red") +
   geom_hline(yintercept = alpha_bonferroni, col = "yellow") +
   geom_hline(yintercept = alpha_sidak, col = "gray") +
+  geom_vline(xintercept = a_star, col = "orange") +
   geom_line(aes(x = test_number, y = alpha_stepped_up_thresholds), col = "green") +
   geom_point(aes(x = test_number, y = alpha_stepped_up_thresholds), col = "green")
 
@@ -84,7 +87,7 @@ ggplot(X) + geom_histogram(aes(x = pvalue), bins = 1000)
 X
 
 FWER_0 = 0.05
-FDR_0 = 0.01
+FDR_0 = 0.05
 setorder(X, pvalue)
 
 tests_rejected_naive = which(X$pvalue < FWER_0)
@@ -100,8 +103,9 @@ tests_rejected_sidak = which(X$pvalue < alpha_sidak)
 length(tests_rejected_sidak)
 
 X[, test_number := 1 : m]
-X[, simes_pvalue := test_number / m * FDR_0]
-max(which(X$pvalue < X$simes_pvalue))
+X[, simes_pvalue := test_number / m * FWER_0]
+a_star = max(which(X$pvalue < X$simes_pvalue))
+a_star
 
 ggplot(X) + 
   geom_line(aes(x = test_number, y = pvalue)) + 
@@ -110,14 +114,15 @@ ggplot(X) +
   scale_y_log10(limits = c(1E-15, 1)) +
   geom_hline(yintercept = FWER_0, col = "red") +
   geom_hline(yintercept = alpha_sidak, col = "gray") +
-  geom_hline(yintercept = alpha_bonferroni, col = "orange") +
+  geom_hline(yintercept = alpha_bonferroni, col = "yellow") +
+  geom_vline(xintercept = a_star, col = "orange") +
   geom_line(aes(x = test_number, y = simes_pvalue), col = "green")
   # annotate("text", label = "Bonferroni / Sidak thresholds", x = 25000, y = alpha_bonferroni*3, size = 4, colour = "orange") + 
   # annotate("text", label = "Naive threshold", x = 10000, y = FWER_0*3, size = 4, colour = "red") + 
   # annotate("text", label = "Sorted p values", x = 7000, y = 1e-12, size = 4, colour = "black") + 
   # annotate("text", label = "Simes threshold", x = 25000, y = 3e-3, size = 4, colour = "green") 
   
-  
+ggplot(data.frame(x = X$pvalue)) + geom_histogram(aes(x = x, y = ..density..))
 
 #Isn't just doing naive give you FDR control?
 X[, naive_rejection := pvalue <= FDR_0]
@@ -125,19 +130,17 @@ bins = 1000
 ggplot(X) + 
   scale_y_log10() +
   geom_histogram(aes(x = pvalue, col = naive_rejection), bins = bins) +
-  geom_hline(yintercept = m / bins, col = "purple")
+  # geom_density() +
+  xlim(0, 0.1)
 #no.... what is FDR doing?
-#it's essentially cutting out that piece that's expected if all H_0's are true
-# X[, simes_rejection := pvalue <= simes_pvalue]
-# ggplot(X) + 
-#   scale_y_log10() +
-#   geom_histogram(aes(x = pvalue, col = simes_rejection), bins = bins) +
-#   geom_hline(yintercept = m / bins, col = "purple")
-# ggplot(X) + 
-#   # scale_y_log10() +
-#   geom_histogram(aes(x = pvalue, col = simes_rejection), bins = bins) +
-#   geom_hline(yintercept = m / bins * FDR_0, col = "purple") +
-#   xlim(0, FDR_0)
+#it's attempting to cut out that piece that's expected if all H_0's are true
+X[, simes_rejection := pvalue <= simes_pvalue]
+ggplot(X) +
+  # scale_y_log10() +
+  geom_histogram(aes(x = pvalue, col = simes_rejection), bins = bins) +
+  xlim(0, 1)
+  # geom_hline(yintercept = m / bins * FDR_0, col = "purple") +
+  # ylim(0, bins/2)
 #see https://genomicsclass.github.io/book/pages/multiple_testing.html
 
 
@@ -149,6 +152,7 @@ ggplot(X) +
 
 
 rm(list = ls())
+pacman::p_load(data.table, ggplot2)
 #https://zenodo.org/record/2396572#.X6NLm4hKiUk
 X = fread("Yeast_AssembledData3Columns.csv")
 m = nrow(X)
@@ -179,14 +183,16 @@ length(tests_rejected_sidak)
 
 X[, test_number := 1 : m]
 X[, simes_pvalue := test_number / m * FDR_0]
-max(which(X$pvalue < X$simes_pvalue))
+a_star = max(which(X$pvalue < X$simes_pvalue))
+a_star
 
 pacman::p_load(ggplot2)
 ggplot(X) + 
   geom_line(aes(x = test_number, y = pvalue)) + 
-  scale_y_log10(limits = c(1E-15, 1)) +
+  scale_y_log10(limits = c(1E-10, 1)) +
   geom_hline(yintercept = FWER_0, col = "red") +
   geom_hline(yintercept = alpha_bonferroni, col = "yellow") +
+  geom_vline(xintercept = a_star, col = "orange") +
   geom_hline(yintercept = alpha_sidak, col = "gray") +
   geom_line(aes(x = test_number, y = simes_pvalue), col = "green")
 
