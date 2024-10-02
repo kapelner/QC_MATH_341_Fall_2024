@@ -1,0 +1,324 @@
+\documentclass[12pt]{article}
+
+\include{preamble}
+
+\newtoggle{solutions}
+%\toggletrue{solutions}
+
+\newcommand{\instr}{\small Your answer will consist of a lowercase string (e.g. \texttt{aebgd}) where the order of the letters does not matter. \normalsize}
+
+\newcommand{\logbaseten}[1]{\text{log$_{10}$}\parens{#1}}
+
+\title{Math 341 / 641 Fall \the\year{} \\ Midterm Examination One}
+\author{Professor Adam Kapelner}
+
+\date{October 1, \the\year{}}
+
+\begin{document}
+\maketitle
+
+\noindent Full Name \line(1,0){410}
+
+\thispagestyle{empty}
+
+\section*{Code of Academic Integrity}
+
+\footnotesize
+Since the college is an academic community, its fundamental purpose is the pursuit of knowledge. Essential to the success of this educational mission is a commitment to the principles of academic integrity. Every member of the college community is responsible for upholding the highest standards of honesty at all times. Students, as members of the community, are also responsible for adhering to the principles and spirit of the following Code of Academic Integrity.
+
+Activities that have the effect or intention of interfering with education, pursuit of knowledge, or fair evaluation of a student's performance are prohibited. Examples of such activities include but are not limited to the following definitions:
+
+\paragraph{Cheating} Using or attempting to use unauthorized assistance, material, or study aids in examinations or other academic work or preventing, or attempting to prevent, another from using authorized assistance, material, or study aids. Example: using an unauthorized cheat sheet in a quiz or exam, altering a graded exam and resubmitting it for a better grade, etc.\\
+\\
+\noindent I acknowledge and agree to uphold this Code of Academic Integrity. \\~\\
+
+\begin{center}
+\line(1,0){350} ~~~ \line(1,0){100}\\
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~signature~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ date
+\end{center}
+
+\normalsize
+
+\section*{Instructions}
+This exam is 110 minutes (variable time per question) and closed-book. You are allowed \textbf{one} page (front and back) of a \qu{cheat sheet}, blank scrap paper (provided by the proctor) and a graphing calculator (which is not your smartphone). Please read the questions carefully. Within each problem, I recommend considering the questions that are easy first and then circling back to evaluate the harder ones. No food is allowed, only drinks. %If the question reads \qu{compute,} this means the solution will be a number otherwise you can leave the answer in \textit{any} widely accepted mathematical notation which could be resolved to an exact or approximate number with the use of a computer. I advise you to skip problems marked \qu{[Extra Credit]} until you have finished the other questions on the exam, then loop back and plug in all the holes. I also advise you to use pencil. The exam is 100 points total plus extra credit. Partial credit will be granted for incomplete answers on most of the questions. \fbox{Box} in your final answers. Good luck!
+
+\pagebreak
+
+\problem Benford's Law represents the distribution of the leading digit in base-10 numbers within datasets across a wide variety of natural phenomenon such as street addresses, stock prices, population numbers, etc:
+
+\beqn
+X \sim \text{Benford} := \logbaseten{\frac{x+1}{x}} \indic{x \in \braces{1, 2, \ldots, 9}}, \quad \theta_0 := \expe{X} = 3.44, \quad \sigsq_0 := \var{X} = 6.06
+\eeqn
+
+\noindent For example, here are 15 numbers sampled from Benford's Law sorted: 1\ingray{1217} 1\ingray{1426} 1\ingray{2612} 1\ingray{3368} 1\ingray{5644} 2\ingray{5311} 2\ingray{7342} 3\ingray{9332} 4\ingray{1511} 4\ingray{2632} 4\ingray{4125} 5\ingray{2322} 7\ingray{8431} 8\ingray{1673} 8\ingray{2152}. Notice how the first digit (in black) is more likely to be a 1 or 2 vs an 8 or 9.
+
+
+Let the parameter of interest be the mean value of the first digit of numeric entries (call it $\theta$). Benford's Law is used by the Internal Revenue Service (IRS) to catch people committing tax fraud since numeric entries on tax forms is known to follow Benford's law. 
+
+
+
+ 
+
+
+\begin{enumerate}[(a)]
+
+\subquestionwithpoints{2} Circle one: the value of $\theta$, then mean numeric value of the first digit for the fields in any individual's tax return is... \quad known \quad /  \quad \iftoggle{solutions}{\inred{unknown}}{unknown}
+
+\subquestionwithpoints{2} To catch someone cheating on their taxes, we need to prove beyond a reasonable doubt that this individual's $\theta$ is not the expectation value of Benford's Law. Thus the alternative hypothesis is $H_a: \theta \neq 3.44$. What is the null hypothesis for the parameter $\theta$?
+%
+\iftoggle{solutions}{\inred{
+\beqn
+H_0: \theta = 3.44
+\eeqn
+}}{~\spc{0}}
+%
+\subquestionwithpoints{2} The \qu{1040 form} the IRS uses has 52 numeric entries. We collect the first digit from each of these fields. Let these digits be the data $x_1, x_2, \ldots, x_{52}$. What is the value of $n$?
+\iftoggle{solutions}{\inred{
+$n = 52$
+}}{~\spc{0}}
+%
+\subquestionwithpoints{2} What estimator would you choose to estimate $\theta$? $\thetahat = $ \iftoggle{solutions}{\inred{
+$\Xbar$
+}}{~\spc{0}}
+%
+\subquestionwithpoints{2} Regardless of what answer you put for the previous question, for the remainder of this problem use $\thetahat = \Xbar$. Circle one: the distribution of this estimator is... \quad known exactly \quad /  \quad \iftoggle{solutions}{\inred{unknown}}{unknown}
+
+
+\subquestionwithpoints{5}  Compute $RET_{5\%}$, the retainment region at $\alpha = 5\%$. Remember, the full null hypothesis is that the data DGP is $\Xoneton \iid$ Benford. Round the values to the nearest two decimals.
+
+\iftoggle{solutions}{\inred{
+\beqn
+\text{RET}_{5\%} = \bracks{\theta_0 \pm z_{1-\frac{\alpha}{2}} \frac{\sigma_0}{\sqrt{n}}} = \bracks{3.44 \pm 1.96 \frac{\sqrt{6.06}}{\sqrt{52}}} = \bracks{3.44 \pm 0.67} = \bracks{2.77, 4.11}
+\eeqn\pagebreak
+}}{~\spc{6}}
+
+
+\subquestionwithpoints{2} Circle one: the RET above is... \quad exact \quad /  \quad \iftoggle{solutions}{\inred{approximate}}{approximate}
+
+\subquestionwithpoints{6} For Bob's tax return, $\xbar = 5.27$ for the 52 first digits of the numeric fields. Run the test and write a concluding sentence.
+%
+
+\iftoggle{solutions}{\inred{
+$\xbar \notin \text{RET}_{5\%}$ hence we reject $H_0$ and conclude that there is statistically significant evidence that the first digits of  Bob's numeric values on his form 1040 do not adhere to Benford's Law, i.e., Bob is cheating the IRS.
+}}{~\spc{5}}
+
+
+
+\subquestionwithpoints{3} Circle one: you could've made a ... \quad \iftoggle{solutions}{\inred{Type I error}}{Type I error} \quad /  \quad Type II error 
+
+\subquestionwithpoints{6} Fisher's approximate $p_{val}$ for this test equals $2\prob{Z > z}$ where $Z \sim \stdnormnot$. Compute the value of $z$ to the nearest two decimals.
+%
+\iftoggle{solutions}{\inred{
+\beqn
+p_{val} &=& 2 \cprob{\thetahat > \thetahathat}{H_0} = 2\cprob{\Xbar > \xbar}{H_0} = 2 \prob{\frac{\Xbar - \theta_0}{\sigma_0 / \sqrt{n}} > \frac{\xbar - \theta_0}{\sigma_0 / \sqrt{n}}} \\
+&=& 2\prob{Z > \frac{5.27 - 3.44}{\sqrt{6.06} / \sqrt{52}}} \mathimplies  z = 5.36
+\eeqn
+}}{~\spc{5}}
+
+
+\subquestionwithpoints{6} Compute an approximate $CI_{\theta, 95\%}$ to the nearest two decimals.
+%
+
+\iftoggle{solutions}{\inred{
+\beqn
+CI_{\theta, 95\%} = \bracks{\xbar \pm z_{1-\frac{\alpha}{2}} \frac{\sigma_0}{\sqrt{n}}} = \bracks{5.27 \pm 1.96 \frac{\sqrt{6.06}}{\sqrt{n}}} = \bracks{5.27 \pm 0.67} = \bracks{4.60, 5.94}
+\eeqn\pagebreak
+}}{~\spc{6}}
+
+\subquestionwithpoints{8} When people commit fraud, they may fabricate numbers \qu{completely randomly}. This means the first digits of their numbers are drawn from the DGP:
+
+\beqn
+\Xoneton \iid U(\braces{1,2, \ldots, 9})~~\text{where}~~ \theta := \expe{X} = 5, \quad \sigsq := \var{X} = 6.67
+\eeqn
+
+How many digits $n$ would you need to detect if someone was cheating by sampling numbers randomly (via the above DGP) with probability 90\% if the null assumption is the same as previously, i.e. the DGP is $\Xoneton \iid$ Benford. Note that $z_{10\%} = -1.28$. Assume $\alpha = 5\%$. Round the result to the nearest natural number.
+
+\iftoggle{solutions}{\inred{
+% From part (f), we know that
+
+% \beqn
+% \text{RET}_{5\%} = \bracks{\theta_0 \pm z_{1-\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}}} = \bracks{3.44 \pm 1.96 \frac{\sqrt{6.06}}{\sqrt{n}}} = \bracks{3.44 - \frac{4.825}{\sqrt{n}}, 3.44 + \frac{4.825}{\sqrt{n}}}
+% \eeqn
+
+As the \qu{real} $\thetahat$ distribution is centered to the right of the $\thetahat~|~H_0$ distribution, we must equate the right bound of the retainment region (from part f) to the 10\%ile of the distribution of $\thetahat$ and solve for the sample size $n$:
+
+\beqn
+\theta_0 + z_{1-\frac{\alpha}{2}} \frac{\sigma_0}{\sqrt{n}} &=& \theta + z_{10\%} \frac{\sigma}{\sqrt{n}} \\
+3.44 + 1.96 \frac{\sqrt{6.06}}{\sqrt{n}} &=& 5 - 1.28 \frac{\sqrt{6.67}}{\sqrt{n}} \\
+1.96 \frac{\sqrt{6.06}}{\sqrt{n}} + 1.28 \frac{\sqrt{6.67}}{\sqrt{n}} &=& 1.56 \\
+\frac{8.13}{\sqrt{n}} &=& 1.56 \\
+n &=& \squared{\frac{8.13}{1.56}} = 27.165 \mathimplies n=27
+\eeqn
+
+}}{~\spc{9}}
+
+
+
+\end{enumerate}
+
+
+\problem Consider the \qu{inverse gamma} DGP, a famous rv we'll study later in class:
+
+\beqn
+\Xoneton \iid \text{InvGamma}(\theta_1, \theta_2) := \frac{\theta_2^{\theta_1}} {\Gamma(\theta_1)} x^{-\theta_1 - 1} e^{-\theta_2 / x} \indic{x>0}
+\eeqn
+
+\noindent where $\Gamma(u)$ is called the \qu{gamma} function which is $\reals \rightarrow \reals$ and ensures the Humpty-Dumpty identity. The mean and variance of this rv are given below:
+
+\beqn
+\expe{X} = \frac{\theta_2}{\theta_1 - 1}, ~~ \var{X} = \frac{\theta_2^2}{(\theta_1 - 1)^2 (\theta_1 - 2)}
+\eeqn
+
+\begin{enumerate}[(a)]
+
+\subquestionwithpoints{2} How many parameters can be targets of inference in this DGP? \iftoggle{solutions}{\inred{2}\pagebreak}{~\spc{1}}
+
+
+% \subquestionwithpoints{3} What is a method of moments estimator for $\var{X}$? Your answer must use notation known from class or be a function of $\Xoneton$, $n$ and fundamental constants only. 
+% %
+% \iftoggle{solutions}{\inred{
+% \beqn
+% \hat{\sigma}^2_n := \oneover{n} \sum_{i=1}^n (X_i - \Xbar)^2
+% \eeqn\pagebreak
+% }}{~\spc{3}}
+
+\subquestionwithpoints{8} Show that the method moments estimator for $\theta_1$ is $\hat{\theta}_1^{MM} = \frac{2\muhat_2 -\muhat_1^2}{\muhat_2 - \muhat_1^2}$.
+%
+\iftoggle{solutions}{\inred{
+\beqn
+\mu_1 &:=& \expe{X} = \frac{\theta_2}{\theta_1 - 1} \mathimplies \theta_2 = \mu_1 (\theta_1 - 1) \\
+\mu_2 - \mu_1^2 &:=& \expe{X^2} - \expe{X}^2 = \var{X} = \frac{\theta_2^2}{(\theta_1 - 1)^2 (\theta_1 - 2)} \\
+&=& \frac{(\mu_1 (\theta_1 - 1))^2}{(\theta_1 - 1)^2 (\theta_1 - 2)} \\
+&=& \frac{\mu_1^2}{\theta_1 - 2} \\
+\mathimplies \theta_1 - 2 &=& \frac{\mu_1^2}{\mu_2 - \mu_1^2} \\
+\mathimplies \theta_1 &=& \frac{\mu_1^2}{\mu_2 - \mu_1^2} + 2 = \frac{\mu_1^2}{\mu_2 - \mu_1^2} + 2 \frac{\mu_2 - \mu_1^2}{\mu_2 - \mu_1^2} \mathimplies \hat{\theta}_1^{MM} = \frac{2\muhat_2 -\muhat_1^2}{\muhat_2 - \muhat_1^2}
+\eeqn
+
+That completes the problem. But we'll need $\hat{\theta}_2^{MM}$ for the next problem, so we'll derive it here now by substituting $\hat{\theta}_1^{MM}$ for $\theta_1$:
+
+\beqn
+\theta_2 &=& \mu_1 (\theta_1 - 1) \\
+&=& \mu_1 \parens{\frac{2\mu_2 -\mu_1^2}{\mu_2 - \mu_1^2} - 1} = \mu_1 \parens{\frac{2\mu_2 -\mu_1^2}{\mu_2 - \mu_1^2} - \frac{\mu_2 - \mu_1^2} {\mu_2 - \mu_1^2}} \\
+\mathimplies \hat{\theta}_2^{MM} &=& \frac{\muhat_1\muhat_2}{\muhat_2 - \muhat_1^2}
+\eeqn
+}}{~\spc{12}}
+
+
+\subquestionwithpoints{2} Circle one: as $n$ gets larger, the $\mse{\hat{\theta}_2^{MM}}$ ... \iftoggle{solutions}{\inred{decreases}}{decreases}\quad / \quad increases
+
+\subquestionwithpoints{3} Let $\x = <0.918, 0.386, 0.395, 0.553, 1.643, 0.536>$. Using the method of moments estimation technique, find the estimates for the two parameters $\doublehat{\theta}_1^{MM}$ and $\doublehat{\theta}_2^{MM}$. Round to three decimals.
+
+\iftoggle{solutions}{\inred{
+We first estimate the moments and then substitute
+
+\beqn
+\muhathat_1 = \oneover{n} \sum_{i=1}^n x_i = 0.7385, \quad\quad \muhathat_2 = \oneover{n} \sum_{i=1}^n x_i^2 = 0.7400 \\
+\doublehat{\theta}_1^{MM} = \frac{2\muhathat_2 -\muhathat_1^2}{\muhathat_2 - \muhathat_1^2} = 4.802, \quad\quad 
+\doublehat{\theta}_2^{MM} = \frac{\muhathat_1\muhathat_2}{\muhathat_2 - \muhathat_1^2} = 2.807
+\eeqn\pagebreak
+}}{~\spc{9}}
+
+
+
+\subquestionwithpoints{8} Assume we now know that $\theta_1 = 5$ going forward in this problem. Show that the maximum likelihood estimator for the second parameter for $n$ draws from this inverse gamma DGP is $\thetahatmle_2 = 5n \inverse{\sum_{i=1}^n X_i^{-1}}$.
+
+\iftoggle{solutions}{\inred{
+\beqn
+\mathcal{L} &=& \prod_{i=1}^n \frac{\theta_2^{5}} {\Gamma(5)} X_i^{-5 - 1} e^{-\theta_2 / X_i} = \frac{\theta_2^{5n}} {\Gamma(5)^n} e^{-\theta_2 \sum_{i=1}^n \oneover{X_i}} \prod_{i=1}^n X_i^{-6} \\
+\ell &=& 5n \natlog{\theta_2} - n \natlog{\Gamma(5)}-\theta_2 \sum_{i=1}^n \oneover{X_i} + \natlog{\prod_{i=1}^n X_i^{-6}} \\
+\ell' &=& \frac{5n}{\theta_2} - \sum_{i=1}^n \oneover{X_i} ~~{\buildrel set \over =}~~ 0 \mathimplies \frac{5n}{\theta_2} = \sum_{i=1}^n \oneover{X_i} \mathimplies \thetahatmle_2 = \frac{5n}{\displaystyle\sum_{i=1}^n X_i^{-1}}
+\eeqn
+}}{~\spc{12}}
+
+% \subquestionwithpoints{3} Assume the dataset from part (d). Using the maximum likelihood estimation technique, find the estimate for the second parameter, $\thetahathatmle_2$. Round to three decimals.
+
+% \iftoggle{solutions}{\inred{
+% \beqn
+% \thetahathatmle_2 &=& \frac{5n}{\displaystyle\sum_{i=1}^n x_i^{-1}} = \frac{5(6)}{\oneover{0.918} + \ldots + \oneover{0.536}} = 2.859
+% \eeqn
+% }}{~\spc{5}}
+
+% \subquestionwithpoints{3} Provide two reasons \text{in English} why $\thetahathatmle_2$ will likely be more accurate than $\doublehat{\theta}_2^{MM}$.
+
+
+% \iftoggle{solutions}{\inred{
+% \begin{enumerate}[1.]
+%     \item When computing $\thetahathatmle_2$ we assumed a value of $\theta_1$ which was not assumed when computing $\doublehat{\theta}_2^{MM}$.
+%     \item Maximum likelihood estimators generally have smaller error than method of moments estimators.
+% \end{enumerate}
+% }}{~\spc{3}}
+
+
+\subquestionwithpoints{6} Find the Cramer-Rao Lower Bound for any unbiased estimator for $\theta_2$.
+
+\iftoggle{solutions}{\inred{
+Using the log likelihood $\ell'$ from (e), we continue:
+
+\beqn
+\ell'' &=& -\frac{5n}{\theta_2^2} \\
+I(\theta_2) &=& \expe{-\ell''} = \expe{-\parens{-\frac{5n}{\theta_2^2}}} = \frac{5n}{\theta_2^2} \\
+\var{\thetahat_2} &\geq& \overn{I(\theta_2)^{-1}} = \frac{\inverse{\frac{5n}{\theta_2^2}}}{n} = \frac{\theta_2^2}{25n^2}
+\eeqn\pagebreak
+}}{~\spc{12}}
+
+\end{enumerate}
+
+\problem We are trying to prove that less than 2\% of all electronic devices a certain company manufactures are defective. Let $\theta$ denote the real proportion of defective devices.
+
+
+
+\begin{enumerate}[(a)]
+
+\subquestionwithpoints{2} What is the null hypothesis? \iftoggle{solutions}{\inred{$H_0: \theta \geq 0.02$}}{~\spc{0}}
+
+\subquestionwithpoints{2} We now sample and record if the device is defective or not. What sampling procedure should be employed to ensure the results can be believed for the entire manufacturing process? \iftoggle{solutions}{\inred{simple random sample (SRS)}}{~\spc{0.5}}
+
+\subquestionwithpoints{3} We sample $n=300$ according to the procedure given by the correct answer for (b). What is the DGP this sample was realized from?
+%
+\iftoggle{solutions}{\inred{
+\beqn
+\Xoneton \iid \bernoulli{\theta}
+\eeqn
+}}{~\spc{1}}
+
+
+\subquestionwithpoints{5} We choose to use the binomial exact test. Below is a table of the PDF of the $\binomial{300}{0.02}$ rv.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{r|rrrrrrrrrrr}
+  \hline
+ $x$ & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ 
+  \hline 
+  $p(x)$ & 0.002 & 0.014 & 0.044 & 0.088 & 0.134 & 0.162 & 0.162 & 0.139 & 0.104 & 0.069 & 0.041
+\end{tabular}
+\end{table}~\spc{-0.5}
+
+Find the three smallest possible nonzero sizes of the binomial exact test each to the nearest three digits.
+
+\iftoggle{solutions}{\inred{
+The three possible sizes are the three left tails which are the CDF values $F(0), F(1), F(2)$ which are $0.002, 0.016, 0.060$.
+}}{~\spc{2}}
+
+
+\subquestionwithpoints{5}  Find $RET_{5\%}$, the retainment region at $\alpha = 5\%$. 
+
+\iftoggle{solutions}{\inred{
+Since $\alpha=5\%$, we cannot use $\braces{2,3, \ldots, 100}$ as this would result in a size of 6\%. Thus, we must use $\braces{1, 2, 3, \ldots, 100}$ resulting in a size of 1.6\% as it's the largest size $\leq \alpha$.\pagebreak
+}}{~\spc{6}}
+
+\subquestionwithpoints{5}  Of the 300 sampled devices, 3 were defective. Run the test. No need to write a concluding sentence.
+
+\iftoggle{solutions}{\inred{
+Since $3 \in RET_{5\%}$, we retain $H_0$.
+}}{~\spc{3}}
+ 
+\subquestionwithpoints{3} If you don't believe the result of this test but you believe the sampling was done correctly, what is a legitimate criticism of the experiment? \iftoggle{solutions}{\inred{The sample size was insufficiently large, i.e., the test was underpowered.}}{~\spc{2}}
+
+
+\end{enumerate}
+\end{document}
+
+
+%%%%clinical significance!
+
