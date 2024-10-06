@@ -3,7 +3,7 @@
 \include{preamble}
 
 \newtoggle{solutions}
-%\toggletrue{solutions}
+\toggletrue{solutions}
 
 \newcommand{\instr}{\small Your answer will consist of a lowercase string (e.g. \texttt{aebgd}) where the order of the letters does not matter. \normalsize}
 
@@ -257,7 +257,7 @@ Using the log likelihood $\ell'$ from (e), we continue:
 \beqn
 \ell'' &=& -\frac{5n}{\theta_2^2} \\
 I(\theta_2) &=& \expe{-\ell''} = \expe{-\parens{-\frac{5n}{\theta_2^2}}} = \frac{5n}{\theta_2^2} \\
-\var{\thetahat_2} &\geq& \overn{I(\theta_2)^{-1}} = \frac{\inverse{\frac{5n}{\theta_2^2}}}{n} = \frac{\theta_2^2}{25n^2}
+\var{\thetahat_2} &\geq& \overn{I(\theta_2)^{-1}} = \frac{\inverse{\frac{5n}{\theta_2^2}}}{n} = \frac{\theta_2^2}{5n^2}
 \eeqn\pagebreak
 }}{~\spc{12}}
 
