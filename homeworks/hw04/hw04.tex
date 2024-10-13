@@ -1,0 +1,242 @@
+\documentclass[12pt]{article}
+
+\include{preamble}
+
+\newtoggle{professormode}
+\toggletrue{professormode} %STUDENTS: DELETE or COMMENT this line
+
+
+
+\title{MATH 341/641 Fall \the\year{} Homework \#4}
+
+\author{Professor Adam Kapelner} %STUDENTS: write your name here
+
+\iftoggle{professormode}{
+\date{Due by email 11:59PM Oct 28, \the\year{} \\ \vspace{0.5cm} \small (this document last updated \today ~at \currenttime)}
+}
+
+\renewcommand{\abstractname}{Instructions and Philosophy}
+
+\begin{document}
+\maketitle
+
+\iftoggle{professormode}{
+\begin{abstract}
+The path to success in this class is to do many problems. Unlike other courses, exclusively doing reading(s) will not help. Coming to lecture is akin to watching workout videos; thinking about and solving problems on your own is the actual ``working out.''  Feel free to \qu{work out} with others; \textbf{I want you to work on this in groups.}
+
+Reading is still \textit{required}. For this homework set, review MATH 340 concepts: the CLT, the CMT, Slutsky's theorems. 
+
+The problems below are color coded: \ingreen{green} problems are considered \textit{easy} and marked \qu{[easy]}; \inorange{yellow} problems are considered \textit{intermediate} and marked \qu{[harder]}, \inred{red} problems are considered \textit{difficult} and marked \qu{[difficult]} and \inpurple{purple} problems are extra credit. The \textit{easy} problems are intended to be ``giveaways'' if you went to class. Do as much as you can of the others; I expect you to at least attempt the \textit{difficult} problems. \qu{[MA]} are for those registered for 621 and extra credit otherwise.
+
+This homework is worth 100 points but the point distribution will not be determined until after the due date. See syllabus for the policy on late homework.
+
+Up to 5 points are given as a bonus if the homework is typed using \LaTeX. Links to instaling \LaTeX~and program for compiling \LaTeX~is found on the syllabus. You are encouraged to use \url{overleaf.com}. If you are handing in homework this way, read the comments in the code; there are two lines to comment out and you should replace my name with yours and write your section. The easiest way to use overleaf is to copy the raw text from hwxx.tex and preamble.tex into two new overleaf tex files with the same name. If you are asked to make drawings, you can take a picture of your handwritten drawing and insert them as figures or leave space using the \qu{$\backslash$vspace} command and draw them in after printing or attach them stapled.
+
+The document is available with spaces for you to write your answers. If not using \LaTeX, print this document and write in your answers. I do not accept homeworks which are \textit{not} on this printout. Keep this first page printed for your records.
+
+\end{abstract}
+
+\thispagestyle{empty}
+\vspace{1cm}
+NAME: \line(1,0){380}
+\clearpage
+}
+
+\problem{Consider the following data from two populations:
+
+%
+%\begin{table}
+%\centering
+%\begin{tabular}{c|cc}
+%& Sample \#1 (Female) & Sample \#2 (Male) \\
+%$n$ & 6 & 10 \\
+%$\xbar
+\beqn
+n_1 = 6,~
+\xbar_1 = 62.3,~
+s^2_1 = 2.25^2,~
+n_2 = 10,~
+\xbar_2 = 70.5,~
+s^2_2 = 2.07^2
+\eeqn
+
+We will provide inference for this data under different assumptions.}
+
+\begin{enumerate}
+
+\easysubproblem{If you assume both populations are iid normal DGP's where the variances are known: $\sigsq_1 = 3.5^2$ and $\sigsq_2 = 4^2$. Run a hypothesis test which attempts to prove unequal means. }\spc{6}
+
+\easysubproblem{Was the test above an exact or approximate test?}\spc{0}
+
+\intermediatesubproblem{In the test above, did you rely on any limit theorems? If so, which ones?}\spc{0}
+
+
+\easysubproblem{Create a 95\% CI for the difference in means, $\theta_1 - \theta_2$ under the assumptions from the previous question. Is this test an exact or approximate interval?}\spc{2}
+
+\easysubproblem{Now, assume both populations come from an iid DGP but the distribution is unknown, run a hypothesis test which attempts to prove unequal means.}\spc{6}
+
+\easysubproblem{Was the test above an exact or approximate test?}\spc{0}
+
+\intermediatesubproblem{In the test above, did you rely on any limit theorems? If so, which ones?}\spc{0}
+
+\easysubproblem{Create a 95\% CI for the difference in means, $\theta_1 - \theta_2$ under the assumptions from the previous question. Is this test an exact or approximate interval?}\spc{1}
+
+\intermediatesubproblem{If you assume both populations come from an iid DGP but the distribution is unknown, and that the variances are unknown, run a hypothesis test which attempts to prove unequal means. Is this test an exact or approximate test?}\spc{3}
+
+
+
+\easysubproblem{Was the test above an exact or approximate test?}\spc{0}
+
+\intermediatesubproblem{In the test above, did you rely on any limit theorems? If so, which ones?}\spc{0}
+
+\intermediatesubproblem{Create a 95\% CI for the difference in means, $\theta_1 - \theta_2$ under the assumptions from the previous question. Is this test an exact or approximate interval?}\spc{2}
+
+\hardsubproblem{If you assume both populations come from an iid DGP but the distribution is unknown, and that the variances are unknown \textit{but now assumed equal}, run a hypothesis test which attempts to prove unequal means.}\spc{5}
+
+
+\end{enumerate}
+
+\problem{We will run inference on real data here.}
+
+
+\begin{enumerate}
+
+
+%\easysubproblem{For two independent samples of Bernoulli DGP's with parameters $\theta_1$ and $\theta_2$, prove that the 2-sample z-test using the sample proportion estimators $\thetahat_1$ and $\thetahat_2$ we developed in class is asymptotically valid.}\spc{10}
+
+\intermediatesubproblem{For the obesity study found at this \href{https://www.biologicalpsychiatryjournal.com/article/S0006-3223(06)01009-2/fulltext}{hyperlink}, consider the outcome metric \qu{binge eating remission} which is binary where 1 = the subject no longer binge eats and 0 = the subject still binge eats. Identify who the two population groups. Run a test attempting to prove remission rates are unequal in the two groups.}\spc{3}
+
+
+\intermediatesubproblem{In the test above, did you rely on any limit theorems? If so, which ones?}\spc{0}
+
+\intermediatesubproblem{Compute a 95\% CI for the difference in remission rates among the two groups.}\spc{2}
+
+\intermediatesubproblem{For the obesity study, now consider the outcome metric \qu{binge episodes per week} which is a count metric (e.g. 1 day, 2 days, 3 days, ..., all 7 days!). Since it's real data, no moments are known! Explain why an assumption that the DGP is normal in both samples does not hold. This question requires 340 thinking.}\spc{1}
+
+
+\intermediatesubproblem{Test the theory that mean \qu{binge episodes per week} differs in both poputions. The raw data is in Table 3 and the format is $\xbar \pm s$. Don't forget that standard error, $s / \sqrt{n}$, is not standard deviation, $s$!}\spc{10}
+
+
+\intermediatesubproblem{[MA] For two independent samples of unknown DGP's with means $\theta_1$ and $\theta_2$ and unknown but finite variances, show that $(\Xbar_1 - \Xbar_2) / \sqrt{S^2_1 / n + S^2_2 / n}$ can be used as an asymptotic $Z$ test when $H_a: \theta_1 - \theta_2 \neq 0$ via invoking Slutsky's B, Slutsky's A, CMT and CLT.}\spc{10}
+
+\end{enumerate}
+
+
+\problem{This is about the core / monster theorem for MM's and MLE's.}
+
+\begin{enumerate}
+
+\inthenotessubproblem{State the theorem's results for MM and MLE estimators}\spc{8}
+
+\inthenotessubproblem{Assuming $\thetahatmle \convp \theta$ and the \qu{technical conditions} we glossed over (e.g. the MLE is not on a boundary of $\Theta$), prove that the MLE is asymptotically normal with mean $\theta$ and variance equal to the CRLB on variance.}\spc{25}
+
+\end{enumerate}%%%%%%%%%%%%%%%%%%%%
+
+\problem{Consider height data from 2020's MATH 369 class. We sample $n_1 = 10$ men and measured heights in inches: 67, 68, 69, 70, 70, 71, 72, 72, 73 and 73 and $n_2 = 6$ females and measured heights in inches: 59, 60, 63, 64, 64 and 64.
+
+}
+
+\begin{enumerate}
+
+\easysubproblem{Over the regions of Europe, North America, Australia, and East Asia, female height is found to be normally distributed with mean 64.8in and standard deviation 2.8in (see \href{https://ourworldindata.org/human-height\#height-is-normally-distributed}{here}). We wish to test if our data deviates from this distribution. State the null and alternative hypothesis.}\spc{2}
+
+\easysubproblem{Using these mean and standard deviation values, standardize the data for the $n_2$ female height measurements and provide the values of $z_1, ..., z_6$ below.}\spc{2}
+
+\intermediatesubproblem{In the following space create an illustration that plots the empirical CDF (the estimate, $\hat{F}$) of the standardized female heights. Also on this plot, graph $F_Z(z)$, the CDF of $\normnot{0}{1}$.You will have to look up the quantiles for the standard normal from Math 241. Try to make your illustration to scale as much as possible but zoom in on the y axis more than the x axis. Make the y axis as high as the space below and have y range from 0 to 1.}\spc{8}
+
+\easysubproblem{From your plot in (c), try to estimate $D_6$, the \qu{supremum norm difference} which is the largest absolute difference between the empirical CDF and $F_Z(z)$.}\spc{0}
+
+\easysubproblem{In the statement $\sqrt{n}D_n \convd K$, what is the name of the distribution $K$? And who proved this result? Plot a rough sketch below of the PDF of $K$. Label the axes.}\spc{3}
+
+\easysubproblem{Run the one-sample Kolmogorov-Smirnov (K-S) test for the $H_a$ in (a) using the test statistic in (d) at $\alpha = 5\%$. Note that $F_K(1.359) = 95\%$. What is your decision?}\spc{1}
+
+\inthenotessubproblem{Did we have enough $n$ for this test to be trusted? Yes/no}\spc{0}
+
+\easysubproblem{We now wish to test if the DGP's for male and female height are different. State the null and alternative hypothesis.}\spc{1}
+
+\intermediatesubproblem{In the following space create an illustration that plots the empirical CDF of the raw female heights (not standardized). Also on this illustration, plot the empirical CDF of the raw male heights (not standardized). Try to make your illustration to scale as much as possible but zoom in on the y axis more than the x axis. Make the y axis as high as the space below and have y range from 0 to 1.}\spc{7}
+
+\easysubproblem{From the plot in (g), try to estimate $D_{6,10}$, the two-sample \qu{supremum norm difference} which is the largest absolute difference between the two empirical CDFs.}\spc{0}
+
+\easysubproblem{Run the two-sample K-S test for the $H_a$ in (g) using the test statistic in (i) at $\alpha = 5\%$. Note that $F_K(1.359) = 95\%$. What is your decision?}\spc{2}
+
+%\intermediatesubproblem{Is the quantile in the cases in (f) and (j) accurate given our sample size? To run these two K-S tests more accurately, what can you do?}\spc{1}
+
+\end{enumerate}
+
+
+\problem{Consider the following DGP: $\Xoneton \iid \exponential{\theta} := \theta e^{-\theta x} \indic{x > 0}$.
+
+}
+
+\begin{enumerate}
+
+\intermediatesubproblem{Derive $\thetahatmle$.}\spc{6}
+
+\intermediatesubproblem{Derive $I(\theta)$.}\spc{4}
+
+\easysubproblem{Since $\thetahatmle \neq \Xbar$, we cannot rely on the CLT to provide asymptotic Z-testing. What theorem can we rely to provide asymptotic Z-testing?}\spc{1}
+
+\intermediatesubproblem{Derive $\hat{Z}$, the asymptotically normal test statistic to test $H_a: \theta \neq \theta_0$. Your answer must be a function of $\Xoneton, n, \theta_0$ only.}\spc{2}
+
+\easysubproblem{Consider the dataset $\x = <0.156, 0.257, 0.454, 0.559, 0.305, 0.431, 0.599, 0.665, 0.185, 0.15>$. Compute $\thetahathatmle$ to the nearest 3 decimals.}\spc{1}
+
+\intermediatesubproblem{For the dataset above test if $H_a: \theta > 1$ as $\alpha = 5\%$.}\spc{3}
+
+\intermediatesubproblem{For the dataset above, create a 95\% CI for $\theta$.}\spc{3}
+
+
+\end{enumerate}
+
+
+\problem{This problem will cover the Score Test and the Likelihood Ratio Test when testing the parameter in the iid Bernoulli DGP. Consider the MLE, $\thetahatmle = \Xbar$ and the null hypothesis $H_0: \theta = \theta_0$.
+}
+
+%Below are critical values for the chi-squared distribution that will be of use throughout the rest of the homework:
+%
+%\begin{table}[ht]
+%\tiny\tt
+%\centering
+%\begin{tabular}{r|rrrrrrrrrrrrrrrrrrrr}
+%df & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 \\ 
+%  \hline
+%$F_{\chisq{df}}(\cdot) = 95\%$ & 3.84 & 5.99 & 7.81 & 9.49 & 11.07 & 12.59 & 14.07 & 15.51 & 16.92 & 18.31 & 19.68 & 21.03 & 22.36 & 23.68 & 25.00 & 26.30 & 27.59  \\ 
+%
+%\end{tabular}
+%\end{table}
+\begin{enumerate}
+
+%\easysubproblem{The data is $n = 100$ and $\sum_{i=1}^n x_i = 61$. We are testing against $H_0: \theta = \half$. Show that the Wald test statistic (the estimate) is $z = 2.2$. Would you reject the null hypothesis at $\alpha = 5\%$ using the Wald test?}\spc{3}
+%
+%\easysubproblem{If you square the Wald test statistic, you get an equivalent test
+%
+%\beqn
+%Z^2 = \frac{(\Xbar - \theta_0)^2}{{\overn{\theta_0 (1 - \theta_0)}}} \convd \chisq{1}
+%\eeqn
+%
+%Some textbooks define this as Wald test. Compute the test statistic (the estimate) for the data in (a) and show you reach the same decision in your hypothesis test.}\spc{3}
+
+\inthenotessubproblem{Provide the asymptotically normal estimator that is the basis of the score test for one parameter for any iid DGP $f(x;\theta)$.}\spc{3}
+
+
+\inthenotessubproblem{Show that the score test is equivalent to the Wald test in the case where the DGP is iid $\bernoulli{\theta}$. This means the estimator is the same. Find in the lectures where we derived $I(\theta)$ for the iid $\bernoulli{\theta}$ DGP. Then it's algebraic simplication from there.}\spc{8}
+
+
+\easysubproblem{Run the score test for the iid  $\bernoulli{\theta}$ DGP where $n=100$ and $\sum x_i = 61$.}\spc{3}
+
+\inthenotessubproblem{Prove the Likelihood Ratio (LR) test for one parameter for any iid DGP $f(x;\theta)$, i.e., declare the estimator and provide its exact or approximate distribution.}\spc{12}
+
+\inthenotessubproblem{Show that the LR test is \emph{not} equivalent to the Wald test / Score test in the case where the DGP is iid $\bernoulli{\theta}$. This means the estimator is \emph{not} the same.}\spc{5}
+
+
+\easysubproblem{Run the LR test for the iid  $\bernoulli{\theta}$ DGP where $n=100$ and $\sum x_i = 61$. Ensure it's different but similar to the result of the score test.}\spc{2}
+
+
+\inthenotessubproblem{Plot a log-likelihood function vs $\thetahathat$. Mark $\thetahathatmle$ and $\theta_0$, a value you're testing aginst in $H_a$. Also illustrate the distance $wa$ that corresponds to the numerator of the statistic used in the Wald test for the MLE, the distance $sc$ that corresponds to the numerator of the statistic used in the score test and $lr$ which corresponds to half the likelihood ratio statistic.}\spc{7.3}
+
+
+\extracreditsubproblem{Prove the asymptotic equivalence of the Wald, Score and LR tests.}\spc{0}
+\end{enumerate}%%%
+
+\end{document}
+
