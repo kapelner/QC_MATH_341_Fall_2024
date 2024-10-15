@@ -224,9 +224,9 @@ We first estimate the moments and then substitute
 
 \iftoggle{solutions}{\inred{
 \beqn
-\mathcal{L} &=& \prod_{i=1}^n \frac{\theta_2^{5}} {\Gamma(5)} X_i^{-5 - 1} e^{-\theta_2 / X_i} = \frac{\theta_2^{5n}} {\Gamma(5)^n} e^{-\theta_2 \sum_{i=1}^n \oneover{X_i}} \prod_{i=1}^n X_i^{-6} \\
-\ell &=& 5n \natlog{\theta_2} - n \natlog{\Gamma(5)}-\theta_2 \sum_{i=1}^n \oneover{X_i} + \natlog{\prod_{i=1}^n X_i^{-6}} \\
-\ell' &=& \frac{5n}{\theta_2} - \sum_{i=1}^n \oneover{X_i} ~~{\buildrel set \over =}~~ 0 \mathimplies \frac{5n}{\theta_2} = \sum_{i=1}^n \oneover{X_i} \mathimplies \thetahatmle_2 = \frac{5n}{\displaystyle\sum_{i=1}^n X_i^{-1}}
+\mathcal{L}(\theta_2;\X)  &=& \prod_{i=1}^n \frac{\theta_2^{5}} {\Gamma(5)} X_i^{-5 - 1} e^{-\theta_2 / X_i} = \frac{\theta_2^{5n}} {\Gamma(5)^n} e^{-\theta_2 \sum_{i=1}^n \oneover{X_i}} \prod_{i=1}^n X_i^{-6} \\
+\ell(\theta_2;\X)  &=& 5n \natlog{\theta_2} - n \natlog{\Gamma(5)}-\theta_2 \sum_{i=1}^n \oneover{X_i} + \natlog{\prod_{i=1}^n X_i^{-6}} \\
+\ell'(\theta_2;\X)  &=& \frac{5n}{\theta_2} - \sum_{i=1}^n \oneover{X_i} ~~{\buildrel set \over =}~~ 0 \mathimplies \frac{5n}{\theta_2} = \sum_{i=1}^n \oneover{X_i} \mathimplies \thetahatmle_2 = \frac{5n}{\displaystyle\sum_{i=1}^n X_i^{-1}}
 \eeqn
 }}{~\spc{12}}
 
@@ -255,9 +255,9 @@ We first estimate the moments and then substitute
 Using the log likelihood $\ell'$ from (e), we continue:
 
 \beqn
-\ell'' &=& -\frac{5n}{\theta_2^2} \\
-I(\theta_2) &=& \expe{-\ell''} = \expe{-\parens{-\frac{5n}{\theta_2^2}}} = \frac{5n}{\theta_2^2} \\
-\var{\thetahat_2} &\geq& \overn{I(\theta_2)^{-1}} = \frac{\inverse{\frac{5n}{\theta_2^2}}}{n} = \frac{\theta_2^2}{5n^2}
+\ell''(\theta_2;\X) &=& -\frac{5n}{\theta_2^2} \\
+I_n(\theta_2) &=& \expe{-\ell''(\theta_2;\X) } = \expe{-\parens{-\frac{5n}{\theta_2^2}}} = \frac{5n}{\theta_2^2} \\
+\var{\thetahat_2} &\geq& \overn{I(\theta_2)^{-1}} = \oneover{I_n(\theta_2)}=\oneover{\frac{5n}{\theta_2^2}} = \frac{\theta_2^2}{5n}
 \eeqn\pagebreak
 }}{~\spc{12}}
 
