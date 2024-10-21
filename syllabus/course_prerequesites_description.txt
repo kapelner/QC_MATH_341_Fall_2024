@@ -1,0 +1,53 @@
+MATH 340 / 640. Probability Theory for Data Science and Statistics. 4 hr.; 4 cr. Prereq.:
+241. Coreq.: MATH 201 and 231. Convolutions, multivariate transformation of variables, the
+poisson process, beta, logistic, laplace, Weibull distributions, characteristic functions, 
+central limit theorem, Cochran's Theorem, the multivariate normal, chi-squared, T, F, 
+Cauchy distributions, vector random variables, covariance matrices, multinomial, 
+multivariate normal, order statistics, law of large numbers, famous inequalities, convergence 
+in distribution and probability, laws of large numbers, Slutsky's Theorem, optimization 
+including stochastic gradient descent. Probability computation using modern software.
+Special topics. Not open to students who are taking or who have received credit for MATH
+340. Students cannot receive credit for more both: MATH 340, and 640. Fall, Spring.
+
+MATH 241. Introduction to Probability and
+Mathematical Statistics. 3 hr.; 3 cr. Prereq. or
+coreq.: 143 or 152. An introduction to the basic concepts
+and techniques of probability and statistics with an
+emphasis on applications. Topics to be covered include
+the axioms of probability, combinatorial methods,
+conditional probability, discrete and continuous random
+variables and distributions, expectations, confidence
+interval estimations, and tests of hypotheses using the
+normal, t-, and chi-square distributions. Students taking
+this course may not subsequently receive credit for
+MATH 114, except by permission of the chair. Not open
+to students who are taking or who have received credit
+for MATH 611. Fall, Spring (MQR)
+
+MATH 231. Linear Algebra I. 4 hr.; 4 cr. Prereq.:
+One semester of calculus. An introduction to linear
+algebra with emphasis on techniques and applications.
+Topics to be covered include solutions of systems of
+linear equations, vector spaces, bases and dimension,
+linear transformations, matrix algebra, determinants,
+eigenvalues, and inner products. Not open to students
+who are enrolled in or who have completed MATH 237.
+Fall, Spring (MQR)
+
+MATH 201. Multivariable Calculus. 4 hr.; 4 cr.
+Prereq.: MATH 143 or 152. A continuation of the
+work of MATH 143 or 152. The topics include polar
+coordinates, vectors, solid analytic geometry, vector-valued
+functions, double and triple integrals, functions
+of several variables, partial derivatives. Wherever
+possible, applications are made to problems of geometry
+and physics. Not open to students who are taking or who
+have passed MATH 132 (unless permission of the chair
+is obtained). Fall, Spring (MQR)
+
+
+
+
+
+
+

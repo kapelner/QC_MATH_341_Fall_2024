@@ -1,0 +1,4 @@
+MATH 341 / 641. Statistical Theory for Data Science. 4 hr.; 4 cr. Coreq.: MATH 340 or
+640. Sampling, point estimation via method of moments and maximum likelihood, loss and
+risk, bias-variance decomposition, frequentist confidence intervals, frequentist hypothesis testing, the p-value, type I/II errors, power, Neyman-Pearson Lemma, the model selection problem,
+ Bayesian inference, prior distribution specification, conjugacy, Bayesian point estimation, credible regions, posterior predictive distribution, Beta-Binomial and Normal-Inverse-Gamma model, consistency, Cramer-Rao lower bound, delta method. Not open to students who are taking or who have received credit for MATH 341. Students cannot receive credit for both: MATH 341 and 641. Fall, Spring
