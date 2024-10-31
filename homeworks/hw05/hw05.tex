@@ -1,0 +1,335 @@
+\documentclass[12pt]{article}
+
+\include{preamble}
+
+\newtoggle{professormode}
+\toggletrue{professormode} %STUDENTS: DELETE or COMMENT this line
+
+
+
+\title{MATH 341/641 Fall \the\year{} Homework \#5}
+
+\author{Professor Adam Kapelner} %STUDENTS: write your name here
+
+\iftoggle{professormode}{
+\date{Due by email 11:59PM Nov 13, \the\year{} \\ \vspace{0.5cm} \small (this document last updated \today ~at \currenttime)}
+}
+
+\renewcommand{\abstractname}{Instructions and Philosophy}
+
+\begin{document}
+\maketitle
+
+\iftoggle{professormode}{
+\begin{abstract}
+The path to success in this class is to do many problems. Unlike other courses, exclusively doing reading(s) will not help. Coming to lecture is akin to watching workout videos; thinking about and solving problems on your own is the actual ``working out.''  Feel free to \qu{work out} with others; \textbf{I want you to work on this in groups.}
+
+Reading is still \textit{required}. For this homework set, review MATH 340 concepts: the CLT, the CMT, Slutsky's theorems. 
+
+The problems below are color coded: \ingreen{green} problems are considered \textit{easy} and marked \qu{[easy]}; \inorange{yellow} problems are considered \textit{intermediate} and marked \qu{[harder]}, \inred{red} problems are considered \textit{difficult} and marked \qu{[difficult]} and \inpurple{purple} problems are extra credit. The \textit{easy} problems are intended to be ``giveaways'' if you went to class. Do as much as you can of the others; I expect you to at least attempt the \textit{difficult} problems. \qu{[MA]} are for those registered for 600-level and extra credit otherwise.
+
+This homework is worth 100 points but the point distribution will not be determined until after the due date. See syllabus for the policy on late homework.
+
+Up to 5 points are given as a bonus if the homework is typed using \LaTeX. Links to instaling \LaTeX~and program for compiling \LaTeX~is found on the syllabus. You are encouraged to use \url{overleaf.com}. If you are handing in homework this way, read the comments in the code; there are two lines to comment out and you should replace my name with yours and write your section. The easiest way to use overleaf is to copy the raw text from hwxx.tex and preamble.tex into two new overleaf tex files with the same name. If you are asked to make drawings, you can take a picture of your handwritten drawing and insert them as figures or leave space using the \qu{$\backslash$vspace} command and draw them in after printing or attach them stapled.
+
+The document is available with spaces for you to write your answers. If not using \LaTeX, print this document and write in your answers. I do not accept homeworks which are \textit{not} on this printout. Keep this first page printed for your records.
+
+\end{abstract}
+
+\thispagestyle{empty}
+\vspace{1cm}
+NAME: \line(1,0){380}
+\clearpage
+}
+
+\problem{In lecture, we did two-sided two-sample z and t tests. We will repeat these tests now but do them one sided. For extra practice, I will make them left-sided. To do this, I will switch the indexing of the two populations. The female population is now considered population \#1 and the male population is now considered population \#2. We assume the DGP for female height measurements is $\iid \normnot{\theta_1}{\sigsq_1}$ independent of the DGP for male height measurements assumed to be $\iid \normnot{\theta_2}{\sigsq_2}$. 
+
+The sample sizes, point estimates for the mean and point estimates for the variance computed from an in-class student survey are:
+
+%
+%\begin{table}
+%\centering
+%\begin{tabular}{c|cc}
+%& Sample \#1 (Female) & Sample \#2 (Male) \\
+%$n$ & 6 & 10 \\
+%$\xbar
+\beqn
+n_1 &=& 6 \\
+\xbar_1 &=& 62.3 \\
+s^2_1 &=& 2.25^2 \\
+n_2 &=& 10 \\
+\xbar_2 &=& 70.5 \\
+s^2_2 &=& 2.07^2
+\eeqn
+
+
+We will now assume that the variances are equal i.e. $\sigsq_1 = \sigsq_2 = \sigsq$ but its value is \emph{unknown}.}
+
+\begin{enumerate}
+
+
+\easysubproblem{Write the exact or approximate distribution of the standardized estimator under the null hypothesis which we denote $(\thetahat_1 - \thetahat_2) / SE~|~H_0$. Write the SE as a mathematical expression.}\spc{3}
+
+\intermediatesubproblem{Will this test be an \emph{exact test} or instead an \emph{approximate test}? Explain.}\spc{3}
+
+\intermediatesubproblem{Compute the retainment region. Note that $\prob{T_{14} \leq -1.76} = 5\%$ where $T_{14}$ denotes a standard Student's t rv with 14 degrees of freedom.}\spc{3}
+
+\easysubproblem{Run the test and write your conclusion using an English sentence.}\spc{2}
+
+\intermediatesubproblem{Find the p-value of our estimate by writing a statement like $\prob{T_{df} < t}$ or $\prob{T_{df} > t}$. You need to solve for $df$, $t$.}\spc{3}
+
+\easysubproblem{Without computing the p-value explicitly, would it be above or below $\alpha = 5\%$? Is the estimate \emph{statistically significant}?}\spc{2}
+
+%%%%%%%%%%%%%%%%%%
+\line(1,0){440} \\
+We will now assume that the variances are unequal i.e. $\sigsq_1 \neq \sigsq_2$ and both values are \emph{unknown}. This is known as the Behrens-Fisher problem.
+
+\easysubproblem{Write the exact or approximate distribution of the standardized estimator under the null hypothesis which we denote $(\thetahat_1 - \thetahat_2) / SE~|~H_0$. Write the SE as a mathematical expression.}\spc{2}
+
+\easysubproblem{Assume you know the exact distribution (which was solved in 2018 and can be found in \href{https://www.academia.edu/37294681/ON_THE_SOLUTION_OF_A_GENERALIZED_BEHRENS_FISHER_PROBLEM}{this paper}). Will this be an exact test or an approximate test?}\spc{0.5}
+
+\easysubproblem{Assume you instead use the Welch-Satterthwaite test. Will this be an exact test or an approximate test?}\spc{0.5}
+
+\intermediatesubproblem{Compute the retainment region. Note that $\prob{T_{9.94} \leq -1.81} = 5\%$.}\spc{2}
+
+\easysubproblem{Run the test and write your conclusion using an English sentence.}\spc{3}
+
+\end{enumerate}
+
+
+\problem{In this question, we will use the \emph{univariate delta method}.}
+
+
+\begin{enumerate}
+
+
+\easysubproblem{State the univariate delta method. List assumptions.}\spc{3}
+
+\easysubproblem{Prove the univariate delta method. Justify each step.}\spc{4}
+
+\hardsubproblem{Assume the $\iid$ Bernoulli DGP with mean $\theta$. Sometimes researchers are interested in the following parameterization: the log odds against the event ocurring, i.e. $\phi := \natlog{\frac{1-\theta}{\theta}}$, a metric that can be any number in $\reals$. Derive an asymptotically normal estimator for $\phi$.}\spc{8}
+
+\intermediatesubproblem{Given the previous answer, write a formula for $\doublehat{CI}_{\phi, 1-\alpha}$ where $\phi$ is the log odds against the event ocurring.}\spc{3}
+
+\easysubproblem{Recall the PUFA-Atrial Fibrilation after open heart surgery study from many of our lectures (click \href{https://www.onlinejacc.org/content/45/10/1723}{here} to find the study online). In class we derived a confidence interval for the odds against getting Atrial Fibrilation in the control (non-PUFA) group. Find a point estimate for $\phi$.}\spc{1}
+
+
+\intermediatesubproblem{Test at $\alpha = 5\%$ that log odds against is nonzero.}\spc{7}
+
+\intermediatesubproblem{Compute a $\doublehat{CI}_{\phi, 95\%}$ where $\phi$ is the log odds against getting Atrial Fibrilation in the control group and round to 3 digits.}\spc{5}
+
+\end{enumerate}
+
+
+\problem{We will review (a) the equivalence of the two-sided $z$ test and the $\chi^2$ test and (b) the equivalence of the two-sided $t$ test and the $F$ test.}
+
+
+\begin{enumerate}
+
+
+\easysubproblem{Fill in the blank:
+
+\beqn
+\frac{\thetahat - \theta}{\mathbb{S}\text{E}[\thetahat]} \convd \stdnormnot \mathimplies \frac{(\thetahat - \theta)^2}{\mathbb{V}\text{ar}[\thetahat]} \convd 
+\eeqn}~\spc{-0.5}
+
+\easysubproblem{Fill in the blank:
+
+\beqn
+\sqrt{n}\frac{\thetahat - \theta}{S} \sim T_{n-1} \mathimplies n\frac{(\thetahat - \theta)^2}{S^2} \sim 
+\eeqn}~\spc{-0.5}
+
+\easysubproblem{For the PUFA-Atrial Fibrilation after open heart surgery \href{https://www.onlinejacc.org/content/45/10/1723}{study}, test the hypothesis that AF incidence is unequal between the PUFA and non-PUFA groups using an approximate $\chi^2$ test at $\alpha = 5\%$. Note that $F_{\chisq{1}}(3.84) = 95\%$.}~\spc{3}
+
+\end{enumerate}
+
+
+\problem{This example is a famous one and you can find it on p161 of AoS. \href{https://en.wikipedia.org/wiki/Gregor_Mendel}{Gregor Mendel} was a scientist and abbott in what's now modern-day Czech Republic. In 1866 he published his work on a theory of genetic inheritance. He conjectured that if phenotypes, i.e. what you can see in an organism, were binary (e.g. ear lobe attached to your face or separated from the face) it was controlled by a pair of \qu{genes}. He proposed that the constituents of the pairs were either \qu{recessive} or \qu{dominant}. If one or both were dominant, the dominant phenotype would be expressed. If both were recessive, the recessive phenotype would be expressed. See \href{https://en.wikipedia.org/wiki/Gregor_Mendel\#/media/File:Mendelian_inheritance.svg}{this illustration}.
+
+In his famous pea experiment, he looked at two binary phenotypes of peas: shape (round vs. wrinkled) and color (yellow vs. green) which he assumed independent. He conjectured that the round was the dominant shape and yellow was the dominant color. He also conjectured that the initial expression of the genes were 50-50 dominant recessive. Thus, you would get 3/4 of the peas be round (dominant-dominant, dominant-recessive, recessive-dominant), 1/4 of the peas be wrinkled (recessive-recessive only), 3/4 of the peas be yellow (dominant-dominant, dominant-recessive, recessive-dominant) and 1/4 of the peas be green (recessive-recessive only). 
+
+Putting it all together, 9/16 of all peas should be yellow and round, 3/16 should be yellow and wrinkled, 3/16 should be green and round and only 1/16 should be green and wrinkled. Between 1856 and 1863 he sampled $n = 556$ peas growing in his garden.}
+
+
+\begin{enumerate}
+
+
+\intermediatesubproblem{Assume that the DGP is $\X \sim \text{Multinom}(n, \bv{\theta})$ where $n = 556$. Formulate Mendel's conjecture as a null and alternative hypothesis.}\spc{2}
+
+\easysubproblem{Assuming the null hypothesis, what are the expected counts in each of the four groups for the $n = 556$ peas?}\spc{2}
+
+\easysubproblem{Of the $n = 556$ peas, he found 315 were yellow and round, 101 were yellow and wrinkled, 108 were green and round and 32 were green and wrinkled. Calculate the value of the $\chi^2$ goodness-of-fit test statistic to two digits which gauges the data's departure from $H_0$.}\spc{5}
+
+\easysubproblem{Run \qu{Pearson's $\chi^2$ goodness of fit test} at $\alpha = 5\%$ and state whether there is sufficient evidence to reject Mendel's theory of genetic inheritance. Note that $F_{\chisq{3}}(7.81) = 95\%$.}\spc{3}
+
+\intermediatesubproblem{We could've also run a $\chi^2$ test of independence. Define the values of $\theta$ here and formulate a null and alternative hypothesis.}\spc{3}
+
+\intermediatesubproblem{Run the test of independence and state whether there is sufficient evidence to reject Mendel's theory of genetic inheritance. Note that $F_{\chisq{1}}(3.84) = 95\%$. Write a concluding sentence.}\spc{6}
+
+
+\end{enumerate}
+
+
+\problem{In class we spoke about the relationship between hair color and eye color for men. Here is an analogous dataset for women:
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrr}
+  \hline
+ & Brown & Blue & Hazel & Green \\ 
+  \hline
+Black & 36 & 9 & 5 & 2 \\ 
+  Brown & 66 & 34 & 29 & 14 \\ 
+  Red & 16 & 7 & 7 & 7 \\ 
+  Blond & 4 & 64 & 5 & 8 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+}
+
+
+\begin{enumerate}
+
+
+\easysubproblem{Write the null hypothesis for hair and eye color being independent. Use the notation $\theta_{i \cdot}$ and $\theta_{\cdot j}$ from class.}\spc{5}
+
+\intermediatesubproblem{Under the null hypothesis, \emph{estimate} the expected frequencies in all 16 groups.}\spc{5}
+
+\intermediatesubproblem{Calculate the $\chi^2$ test statistic which gauges the data's departure from $H_0$. No need to show work.}\spc{1}
+
+\intermediatesubproblem{Run a chi-squared test of hair and eye color being independent at $\alpha = 5\%$. Note that $F_{\chisq{9}}(16.92) = 95\%$. Write a concluding sentence.}\spc{2}
+
+
+\intermediatesubproblem{[MA] Here's frequency data on men and women's hair color:
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrr}
+  \hline
+ & Brown & Blue & Hazel & Green \\ 
+  \hline
+Male & 98 & 101 & 47 & 33 \\ 
+  Female & 122 & 114 & 46 & 31 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+We wish to run a $\chi^2$ test of homogeneity. Write the hypotheses below and run the test at $\alpha = 5\%$ and provide a concluding sentence.  Note that $F_{\chisq{3}}(7.81) = 95\%$.}\spc{15} 
+
+\end{enumerate}
+
+\problem{Herein we will practice the model selection theory and techniques we learned in class. Consider the following dataset with $n=10$: -0.67, -0.58,  0.57, -0.34, -0.22,  0.60, -0.42, -0.01,  0.76,  0.80. Consider the following $M=4$ candidate iid DGPs / models similar to the lecture:
+
+\begin{itemize}
+\item[MOD 1:] $ \normnot{\theta_1}{\theta_2}$
+\item[MOD 2:] $ \text{Cauchy}(\theta_1, \theta_2)$
+\item[MOD 3:] $ \text{Logistic}(\theta_1, \theta_2)$
+\item[MOD 4:] $ \text{Laplace}(\theta_1, \theta_2)$
+\end{itemize}
+
+\noindent After using maximum likelihood, we find the following estimates and AIC metrics for each DGP / model:
+
+\begin{itemize}
+\item[MOD 1:] $ \normnot{0.050}{0.303}$. AIC = 20.427
+\item[MOD 2:] $ \text{Cauchy}(-0.182, 0.391)$. AIC = 26.899
+\item[MOD 3:] $ \text{Logistic}(0.028, 0.345)$. AIC = 21.689
+\item[MOD 4:] $ \text{Laplace}(-0.176,0.496)$. AIC = 23.843
+\end{itemize}
+
+}
+
+
+\begin{enumerate}
+
+
+\intermediatesubproblem{Compute $\ell\parens{\thetahathatmle_1, \thetahathatmle_2; x_1, \ldots, x_{10}}$ for MOD 1 without using the AIC value. This is nothing but some computation. Remember $\theta_2$ in the $ \normnot{\theta_1}{\theta_2}$ notation is the variance (i.e., not the standard deviation)!}\spc{5}
+
+
+\intermediatesubproblem{[MA] Compute $\ell\parens{\thetahathatmle_1, \thetahathatmle_2; x_1, \ldots, x_{10}}$ for MOD 3 without using the AIC value.}\spc{5}
+
+\easysubproblem{Compute the AIC for MOD1 given your answer in (a). Is it the same that I computed using software?}\spc{3}
+
+
+\easysubproblem{According to the AIC metric, which model fits this dataset the best?}\spc{1}
+
+\easysubproblem{Calculate the $M=4$ Akaike weights. If the true model was among these four candidate models, what is the probablity the true model is normally distributed?}\spc{3}
+
+\easysubproblem{Compute all AICc metrics. According to the AICc metric, which model fits this dataset the best?}\spc{3}
+
+\easysubproblem{Why should the AICc metric be employed in this case instead of the AIC metric?}\spc{6}
+
+%\extracreditsubproblem{Prove the bias term from the lecture is $K_m$. State all assumptions}\spc{3}
+\end{enumerate}
+
+\problem{The class now is transitioning from the \qu{frequentist perspective} of statistical inference to the \qu{Bayesian perspective} of statistical inference. It is worth it to review the assumptions and limitations of the frequentist perspective. We will discuss limitations of the Bayesian perspective as well as they come up.}
+
+\begin{enumerate}
+
+\hardsubproblem{Why do frequentists have an insistence on $\theta$ being a fixed, immutable quantity? Google is your friend!}\spc{5}
+
+\hardsubproblem{Why does some of frequentist inference break down if $n$ isn't large?}\spc{4}
+
+\easysubproblem{Write the most popular two frequentist interpretations of a confidence interval.}\spc{6}
+
+\intermediatesubproblem{Why are each of these interpretations unsatisfactory?}\spc{4}
+
+\easysubproblem{Review: what are the two possible outcomes of a hypothesis test?}\spc{1}
+
+\hardsubproblem{What are the weaknesses of the interpretation of Fisher's $p$-val?}\spc{6}
+
+
+\end{enumerate}
+
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\problem{We'll begin Bayesian.}
+
+\begin{enumerate}
+
+
+\intermediatesubproblem{Explain why $\cprob{B}{A} \propto \cprob{A}{B}$.}\spc{6}
+
+\easysubproblem{If $B$ represents the hypothesis or the putative cause and $A$ represents evidence or data, explain what Bayesian Conditionalism is, going from which probability statement to which probability statement.}\spc{3}
+
+
+\end{enumerate}
+
+\problem{We examine here paternity testing (i.e. answering the question \qu{is this guy the father of my child?}) via the simplistic test using blood types. These days, more advanced genetic methods exist so these calculations aren't made in practice, but they are a nice exercise. 
+
+First a crash course on basic genetics. In general, everyone has two alleles (your genotype) with one coming from your mother and one coming from your father. The mother passes on each of the alleles with 50\% probability and the father passes on each allele with 50\% probability. One allele gets expressed (your phenotype). So one of the genes shone through (the dominant one) and one was masked (the recessive one). Dominant blood types are A and B and the recessive type is o (lowercase letter). The only way to express phenotype o is to have genotype oo i.e. both genes are o. There is an exception; A and B are codominant meaning that blood type AB tests positive for both A and B.
+
+In this case consider a child of blood type B and the mother of blood type A. Using this \href{http://www.cccoe.net/genetics/blood2.html}{hereditary guide}, we know that the mother's type must be Ao so she passed on an o to the child thus the child got the B from the father. Thus the father had type AB, BB or Bo. I got the following data from \href{http://www.sciencedirect.com/science/article/pii/S1110863011000796}{this paper} (so let's assume this case is in Nigeria in 1998).
+
+\begin{table}
+\centering
+\begin{tabular}{cc}
+Genotype & Frequency \\ \hline
+OO	&0.52 \\
+AA	&0.0196 \\
+AO	&0.2016 \\
+BB	&0.0196 \\
+BO	&0.2016 \\
+AB	&0.0392 \\
+\end{tabular}
+\end{table}
+} 
+
+\begin{enumerate}
+
+\easysubproblem{Bob is the alleged father and he has blood type B but his genotype is unknown. What is the probability he passes on a B to the child?}\spc{3}
+
+\easysubproblem{What is the probability a stranger passes on a B to the child?}\spc{3}
+
+\easysubproblem{Assume our prior is 50-50 Bob is the father, the customary compromise between a possibly bitter mother and father. What is the prior odds of Bob being the father? Don't think too hard about this one; it is marked easy for a reason.}\spc{6}
+
+\hardsubproblem{We are interested in the posterior question. What is the probability Bob is the father given the child with blood type B?}\spc{5}
+
+\hardsubproblem{What is the Bayes Factor here? See (a) and (b).}\spc{5}
+
+\easysubproblem{What is the probability Bob is not the father given the child with blood type B? Should be easy once you have (c) and (e).}\spc{3}
+
+\end{enumerate}
