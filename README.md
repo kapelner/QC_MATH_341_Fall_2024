@@ -46,9 +46,6 @@ Location: KY 258
 
 ## Change of Schedule
 
-For religious reasons, I cannot attend the lectures on Thursday, Oct 17 and Thursday Oct 24. Make up sessions are below
-
-* Tuesday, Oct 15. This day is a "Monday" schedule at CUNY. Class will be from 8:15PM-10:05PM in KY250.
 * Final review session in December TBD
 
 ## Grades and Class Standing
