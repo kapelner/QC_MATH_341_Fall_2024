@@ -1,0 +1,295 @@
+\documentclass[12pt]{article}
+
+\include{preamble}
+
+\newtoggle{professormode}
+\toggletrue{professormode} %STUDENTS: DELETE or COMMENT this line
+
+
+
+\title{MATH 341/641 Fall \the\year{} Homework \#6}
+
+\author{Professor Adam Kapelner} %STUDENTS: write your name here
+
+\iftoggle{professormode}{
+\date{Due by email 11:59PM November 27, \the\year{} \\ \vspace{0.5cm} \small (this document last updated \today ~at \currenttime)}
+}
+
+\renewcommand{\abstractname}{Instructions and Philosophy}
+
+\begin{document}
+\maketitle
+
+\iftoggle{professormode}{
+\begin{abstract}
+The path to success in this class is to do many problems. Unlike other courses, exclusively doing reading(s) will not help. Coming to lecture is akin to watching workout videos; thinking about and solving problems on your own is the actual ``working out.''  Feel free to \qu{work out} with others; \textbf{I want you to work on this in groups.}
+
+Reading is still \textit{required}. For this homework set, review MATH 340 concepts: the Bernoulli, Binomial, Beta, BetaBinomial, Gamma, Poisson and kernels.
+
+The problems below are color coded: \ingreen{green} problems are considered \textit{easy} and marked \qu{[easy]}; \inorange{yellow} problems are considered \textit{intermediate} and marked \qu{[harder]}, \inred{red} problems are considered \textit{difficult} and marked \qu{[difficult]} and \inpurple{purple} problems are extra credit. The \textit{easy} problems are intended to be ``giveaways'' if you went to class. Do as much as you can of the others; I expect you to at least attempt the \textit{difficult} problems. \qu{[MA]} are for those registered for 621 and extra credit otherwise.
+
+This homework is worth 100 points but the point distribution will not be determined until after the due date. See syllabus for the policy on late homework.
+
+Up to 5 points are given as a bonus if the homework is typed using \LaTeX. Links to instaling \LaTeX~and program for compiling \LaTeX~is found on the syllabus. You are encouraged to use \url{overleaf.com}. If you are handing in homework this way, read the comments in the code; there are two lines to comment out and you should replace my name with yours and write your section. The easiest way to use overleaf is to copy the raw text from hwxx.tex and preamble.tex into two new overleaf tex files with the same name. If you are asked to make drawings, you can take a picture of your handwritten drawing and insert them as figures or leave space using the \qu{$\backslash$vspace} command and draw them in after printing or attach them stapled.
+
+The document is available with spaces for you to write your answers. If not using \LaTeX, print this document and write in your answers. I do not accept homeworks which are \textit{not} on this printout. Keep this first page printed for your records.
+
+\end{abstract}
+
+\thispagestyle{empty}
+\vspace{1cm}
+NAME: \line(1,0){380}
+\clearpage
+}
+
+
+\input{R_equations_table}
+
+\problem{We will prove an interesting fact about the posterior being the result of iterative updates. Let the DGP be $\iid \bernoulli{\theta}$ and we'll use the parameter space from class that's a subset of the full parameter space, $\Theta = \braces{0.5, 0.75}$.} %We'll also consider the dataset from class where $x_1 = 0, x_2 = 1, x_3 = 1$.}
+
+\begin{enumerate}
+
+\easysubproblem{Using the principle of indifference, what is $\prob{\theta = 0.75}$?}\spc{0}
+
+\intermediatesubproblem{Find the posterior probability of $\theta = 0.75$ when seeing only $x_1 = 0$.}\spc{2}
+
+\intermediatesubproblem{Use the result from (b) as the prior distribution now i.e. let the prior be $\cprob{\theta}{X_1 = 0}$. Using this prior, calculate the posterior i.e. $\cprob{\theta}{X_2}$}\spc{7}
+
+
+%\intermediatesubproblem{Third time is a charn. Use the result from (e) as the prior distribution now. Using this prior, calculate the posterior for only $x_3 = 1$ (we are ignoring $x_1$ and $x_2$ explicitly since they're implicitly factored into the prior). Your answer should match the posterior from class (probability 0.53 for $\theta = 0.75$ and probability 0.47 for $\theta=0.5$) where we considered all $x_1, x_2, x_3$ in one shot together.}\spc{4}
+
+\end{enumerate}
+
+
+
+\problem{We will now be looking at the beta prior for the $\iid \bernoulli{\theta}$ DGP and we'll provide Bayesian Inference on the full parameter space, $\Theta = (0, 1)$.}
+
+\begin{enumerate}
+
+\easysubproblem{Using the principle of indifference, what is the prior for $\theta$ in the Bernoulli iid DGP?}\spc{0}
+
+\easysubproblem{Let's say $n=6$ and your data is $0,1,1,1,1,1$. What is the likelihood $\cprob{\X}{\theta}$ of this event as a function of $\theta$?}\spc{1}
+
+\easysubproblem{Does it matter the order as to which the data came in? Yes/no.}\spc{-0.5}
+
+\intermediatesubproblem{Show that the unconditional probability (the prior predictive distribution, the denominator in Bayes rule) is a beta function and specify its two arguments.}\spc{1}
+
+\intermediatesubproblem{Calculate this beta function as a real value.}\spc{1}
+
+\intermediatesubproblem{Put the three answers above $f(\theta)$, $\cprob{\X}{\theta}$, $\prob{\X}$, together to find the posterior probability $f(\theta \,|\, \X)$.}\spc{2}
+
+\easysubproblem{Show that the posterior is a beta distribution and specify its parameters.}\spc{1}
+
+
+\easysubproblem{Calculuate $\thetahathatmap$ and $\thetahathatmmse$ exactly from formulas. Approximate $\thetahathatmmae$ via the \texttt{qbeta} function by using \texttt{R} on your computer (or use \href{https://rdrr.io/snippets/}{rdrr.io} online).}\spc{2}
+
+
+\easysubproblem{Compute a 95\% frequentist confidence interval (CI) for $\theta$. Is there a problem with it? If so what is wrong and why is it a problem?}\spc{2}
+
+\easysubproblem{Create a 95\% credible region for $\theta$. Use the \texttt{qbeta} function and \texttt{R} on your computer (or use \href{https://rdrr.io/snippets/}{rdrr.io} online).}\spc{1}
+
+\easysubproblem{Sketch / plot / illustrate this posterior density function as best as you can by hand. Mark $\thetahathatmap$, $\thetahathatmmse$ and $\thetahathatmmae$ and mark them in the drawing as dotted vertical lines. Also, mark the 95\% CR for $\theta$ underneath the graph.}\spc{9}
+
+
+
+\easysubproblem{Test $H_a: \theta < 0.5$ at $\alpha_0 = 5\%$. Calculate the Bayesian p-value via the \texttt{pbeta} function by using \texttt{R} on your computer (or use \href{https://rdrr.io/snippets/}{rdrr.io} online).}\spc{3}
+
+\easysubproblem{Test $H_a: \theta > 0.5$ at $\alpha_0 = 5\%$. Calculate the Bayesian p-value via the \texttt{pbeta} function by using \texttt{R} on your computer (or use \href{https://rdrr.io/snippets/}{rdrr.io} online).}\spc{3}
+
+\intermediatesubproblem{Test $H_a: \theta \neq 0.5$ at $\alpha_0 = 5\%$ and $\delta = 2\%$. Calculate the Bayesian p-value via the \texttt{pbeta} function by using \texttt{R} on your computer (or use \href{https://rdrr.io/snippets/}{rdrr.io} online). Use }\spc{4}
+
+%\easysubproblem{Test $H_a: \theta \neq 0.5$ at $\alpha_0 = 5\%$ by using the 2-sided CR procedure (you already calculated $CR_{\theta,95\%}$ so just check is $\theta_0$ is outside the interval to reject or not).}\spc{4}
+%
+%\hardsubproblem{[MA] Find the Bayesian p-value ujsing the CR procedure.}\spc{5}
+
+%\hardsubproblem{[MA] Prove that the posterior expectation is the optimal estimator given your prior and the data under mean squared error loss.}\spc{3}
+
+%\extracreditsubproblem{Prove that the posterior median is the optimal estimator given your prior and the data under mean absolute error loss.}\spc{-0.5}
+
+%\easysubproblem{Now imagine you are not indifferent and you have some idea about what $\theta$ could be a priori and that subjective feeling can be specified as a beta distribution. (1) Draw the basic shapes that the beta distribution can take on, (2) give an example of $\alpha$ and $\beta$ values that would produce these shapes and (3) write a sentence about what each one means for your prior belief. These shapes are in the notes.}\spc{15}
+
+\intermediatesubproblem{Let the DGP now be $X \sim \binomial{n}{\theta}$ where $n$ is known but $\theta$ is unknown. Using your prior of $\theta \sim \stdbetanot$, show that $\theta~|~X \sim \betanot{\alpha + x}{\beta + (n - x)}$. Best to use kernels!}\spc{4}
+
+\easysubproblem{What does it mean that the beta distribution is the \qu{conjugate prior} for the binomial likelihood?}\spc{4}
+
+\intermediatesubproblem{If you employ the principle of indifference, how many successes and failures is that equivalent to seeing a priori?}\spc{3}
+
+\easysubproblem{What is Haldane's prior $\prob{\theta}$ in the beta-binomial Bayesian model? What was he trying to accomplish with this prior?}\spc{3}
+
+\easysubproblem{What is the definition of \qu{a proper prior}? Is Haldane's prior $\prob{\theta}$ a proper prior? Yes/no and why.}\spc{3}
+
+\easysubproblem{How many pseudotrials $n_0$, pseudosuccesses $x_0$ and pseudofailures $n_0-x_0$ are contributed by Haldane's prior? Is it the same as for Laplace's prior?}\spc{2}
+
+\easysubproblem{What is $\thetahatmmse$ under Haldane's prior? Is it the same as $\thetahatmle$?}\spc{1}
+
+
+
+%\intermediatesubproblem{[MA] Show that if $Y \sim \stdbetanot$ then $\var{Y} = \frac{\alpha\beta}{\squared{\alpha + \beta}(\alpha + \beta + 1)}$.}\spc{11}
+
+%\extracreditsubproblem{Prove that $B(\alpha, \beta) = \frac{\Gammaf{\alpha} \Gammaf{\beta}}{\Gammaf{\alpha + \beta}}$.}
+
+
+%\intermediatesubproblem{The posterior is $\theta~|~X \sim \betanot{\alpha + x}{\beta + (n - x)}$. Some say the values of $\alpha$ and $\beta$ can be interpreted as follows: $\alpha$ is considered the prior number of successes and $\beta$ is considered the prior number of failures. Why is this a good interpretation? Writing out the PDF of $\theta~|~X$ should help you see it.}\spc{5}
+
+
+%\easysubproblem{Why are large values of $\alpha$ and/or $\beta$ considered to compose a \qu{strong} prior?}\spc{2}
+
+\intermediatesubproblem{What is the \qu{weakest} proper beta prior you can think of and why?}\spc{5}
+
+
+%\hardsubproblem{I think a priori that $\theta$ should be expected to be 0.8 with a standard error of 0.02. Let the prior be $\theta \sim \stdbetanot$ and solve for the values of $\alpha$ and $\beta$ based on my a priori specification. From wikipedia: $\var{\theta} = \frac{\alpha\beta}{\squared{\alpha + \beta}(\alpha + \beta + 1)}$.}\spc{9}
+
+
+
+\hardsubproblem{[MA] Bayesian inference can be thought of as \qu{begin with prior, see one data point, update distribution of $\theta$, if you see another data point, use that updated distribution as prior to then compute a second updated distributed, etc. etc.} Prove this idea under the case where the DGP is a general $\iid$ rv model. This amounts to proving for any $n$ that
+
+\beqn
+\cprob{\theta}{X_n} = \frac{\cprob{X_n}{\theta}\overbrace{\cprob{\theta}{X_1, \ldots, X_{n-1}}}^{\substack{\text{this prior is assumed} \\ \text{to be the posterior  for the} \\ \text{previous $n-1$ data points}}}}{\prob{X_{n}}}
+\eeqn
+
+The hard part of this is understanding what the denominator means in this context.}\spc{20}
+
+%\hardsubproblem{Prove that the posterior predictive distribution is $X^*~|~X \sim \bernoulli{\frac{x + \alpha}{n + \alpha + \beta}}$. MA students --- do this yourself. Other students --- use my notes and justify each step. I use a property of the \href{https://en.wikipedia.org/wiki/Gamma_function}{gamma function}. Remember, if $W \sim \bernoulli{\theta}$ then $\prob{W=1} = \theta$. Use that trick! Set $X^* = 1$ and find that probability!}\spc{12}
+
+
+%\easysubproblem{Assume the dataset in (b) where $n=6$. Assume $\theta \sim \betanot{\alpha=2}{\beta=2}$ a priori. Find the $\thetahatmap$, $\thetahatmmse$ and $\thetahatmae$ estimates for $\theta$. For the $\thetahatmae$ estimate, you'll need to obtain a quantile of the beta distribution. Use \texttt{R} on your computer or online using \href{http://rextester.com/l/r_online_compiler}{rextester}. The \texttt{qbeta} function in \texttt{R} finds arbitrary beta quantiles. Its first argument is the quantile desired e.g. 2.5\%, the next is $\alpha$ and the third is $\beta$. So to find the 97.5\%ile of a $\betanot{\alpha=2}{\beta=2}$ for example you type \texttt{qbeta(.975, 2, 2)} into the \texttt{R} console.}\spc{2}
+
+%\intermediatesubproblem{Why are all three of these estimates the same?}\spc{5}
+
+%\easysubproblem{Write out an expression for the 95\% credible region for $\theta$. Then write out the answer using the \texttt{qbeta} function from the \texttt{R} language.}\spc{3}
+%
+%\easysubproblem{Compute a 95\% frequentist CI for $\theta$.}\spc{5}
+%
+%\hardsubproblem{Let $\mu : \reals \rightarrow \reals^+$ be the \href{https://en.wikipedia.org/wiki/Lebesgue_measure}{Lebesgue measure} which measures the length of a subset of $\reals$. Why is $\mu(\text{CR}) < \mu(\text{CI})$? That is, why is the Bayesian Confidence Interval tighter than the Frequentist Confidence Interval? Use your previous answers. }\spc{5}
+%
+%\easysubproblem{Explain the disadvantages of the highest density region method for computing credible regions.}\spc{3}
+%
+%\intermediatesubproblem{Design a prior where you believe $\expe{\theta} = 0.5$ and you feel as if your belief represents information contained in five coin flips.}\spc{3}
+%
+%\intermediatesubproblem{Calculate a 95\% a priori credible region for $\theta$. Use \texttt{R} on your computer (or \href{https://rdrr.io/snippets/}{rdrr.io} online) and its \texttt{qbeta} function.}\spc{3}
+%
+%\easysubproblem{You flip the same coin 100 times and you observe 39 heads. Calculate a 95\% a posteriori credible region for $\theta$. Round to the nearest 3 decimal points.}\spc{0.5}
+
+
+\end{enumerate}
+
+
+\problem{This question is about estimation of \qu{true career batting averages} in baseball. Every hitter's \emph{sample} batting average (BA) is defined as:
+
+\beqn
+BA := \frac{\text{sample \# of hits}}{\text{sample \# of at bats}}
+\eeqn
+
+In this problem we care about estimating a hitter's \emph{true} career batting average which we call $\theta$. Each player has a different $\theta$ but we focus in this problem on one specific player. In order to estimate the player's true batting average, we make use of the sample batting average as defined above (with Bayesian modifications, of course). 
+
+We assume that each at bat (for any player) are conditionally $\iid$ based on the players' true batting average, $\theta$. So if a player has $n$ at bats, then each successful hit in each at bat can be modeled via $X_1~|~\theta, ~X_2~|~\theta, \ldots, ~X_n~|~\theta \iid \bernoulli{\theta}$ i.e. the standard assumption and thus the total number of hits out of $n$ at bats is binomial.
+
+Looking at the entire dataset for 6,061 batters who had 100 or more at bats, I fit the beta distribution PDF to the sample batting averages using the maximum likelihood approach and I'm estimating $\alpha = 42.3$ and $\beta = 127.7$. Consider building a prior from this estimate as $\theta \sim \betanot{42.3}{127.7}$ }
+
+\begin{enumerate}
+
+\easysubproblem{Is the prior \qu{conjugate}? Yes / No.}\spc{-0.5}
+\easysubproblem{Is this prior \qu{indifferent}? Yes / No.}\spc{-0.5}
+\easysubproblem{Is this prior \qu{objective}? Yes / No.}\spc{-0.5}
+\easysubproblem{Is this prior \qu{informative}? Yes / No.}\spc{-0.5}
+
+\easysubproblem{Using prior data to build the prior is called...}\spc{-0.5}
+
+\easysubproblem{This prior has the information contained in how many observations?}\spc{-0.5}
+
+\easysubproblem{We now observe four at bats for a new player and there were no hits. Find the $\thetahatmmse$.}\spc{0.5}
+
+\easysubproblem{Why was your answer so far away from $\thetahatmle = 0$? What is the shrinkage proportion in this estimation?} \spc{2}
+
+\intermediatesubproblem{Why is it a good idea to shrink so hard here? Why do some consider this to be one of the beauties of Bayesian modeling?} \spc{6}
+
+\hardsubproblem{Write an exact expression for the batter getting 14 or more hits on the next 20 at bats. You can leave your answer in terms of the beta function. Do not compute explicitly.} \spc{3}
+
+\intermediatesubproblem{How many hits is the batter expected to get in the next 20 at bats?} \spc{3}
+
+\end{enumerate}
+
+
+\problem{Assume that the DGP is $X \sim \binomial{n}{\theta}$ with $n$ fixed and known. Let $f(\theta) = \betanot{2.5}{2.5}$. The data is as follows: $n = 100$ and $x = 39$.}
+
+\begin{enumerate}
+
+\easysubproblem{Find the posterior predictive distribution, $X_*~|~X$ where $X_*$ denotes the random variable that counts the number of successes in $n_*$ future trials.}\spc{9}
+
+\easysubproblem{Show that for the case of predicting only  $n_* = 1$ future trials, the posterior predictive distribution is $X_*~|~X \sim \bernoulli{\thetahatmmse}$.}\spc{8}
+
+%\easysubproblem{If $n_* = 17$, what is the expectation and variance of $X_*~|~X$?}\spc{2}
+
+\hardsubproblem{Let $n_* = 17$ for the remainder of this problem. Approximate the PMF of $X_*~|~X$ as best as you can. Mark critical points and label the axes.}\spc{7}
+
+\intermediatesubproblem{What is the probability of $x_* \geq 10$ given your data and prior? Write your answer as a sum with terms using the beta function.}\spc{3}
+
+\intermediatesubproblem{[MA] Answer the previous problem exactly and then round to two decimal places using the \url{https://rdrr.io/snippets/} website if you don't have access to \texttt{R} on your computer. To compute $B(a,b)$ use \texttt{beta(a,b)}.}\spc{2}
+
+\end{enumerate}
+
+
+\problem{These are questions about Jeffreys priors.}
+
+\begin{enumerate}
+
+\easysubproblem{What is the Jeffrey's prior for $\theta$ under the binomial likelihood? Your answer must be a distribution.}\spc{1}
+
+\hardsubproblem{What is the Jeffrey's prior for $\theta = t^{-1}(r) = \frac{e^r}{1 + e^r}$ (i.e. the log-odds reparameterization) under the binomial likelihood?}\spc{6.5}
+
+\hardsubproblem{[MA] Show that the prior in the previous question is a \href{https://en.wikipedia.org/wiki/Generalized_logistic_distribution}{Type IV logistic distribution} and is conjugate for the binomial likelihood with the log-odds reparameterization.}\spc{8.5}
+
+
+\hardsubproblem{Explain the advantage of Jeffrey's prior in your own words.}\spc{3}
+
+\easysubproblem{Prove Jeffrey's invariance principle i.e. prove that the Jeffrey's prior makes your prior probability immune to transformations.}\spc{8}
+
+\end{enumerate}
+
+
+\problem{We will ask some basic problems on the Gamma-Poisson conjugate model.}
+
+\begin{enumerate}
+
+\intermediatesubproblem{Prove that the Poisson likelihood for $n$ observations, i.e. $\Xoneton ;\theta \iid \poisson{\theta}$, with a gamma prior yields a gamma posterior and find its parameters.}\spc{8}
+
+\easysubproblem{Now that you see the posterior, provide a pseudodata interpretation for both hyperparameters.}\spc{4}
+
+\intermediatesubproblem{Find the Bayesian point estimates as function of the data and prior's hyperparameters (i.e. $\thetahathatmmse$, $\thetahathatmmae$ and $\thetahathatmap$).}\spc{5}
+
+%\intermediatesubproblem{If $\Xoneton ;\theta \iid \poisson{\theta}$, find $\thetahathatmle$.}\spc{6}
+
+\intermediatesubproblem{Demonstrate that $\thetahathatmmse$ is a shrinkage estimator and find $\rho$.}\spc{4}
+
+%\intermediatesubproblem{Demonstrate that $\prob{\theta} \propto 1$ is improper.}\spc{2}
+
+%\easysubproblem{[MA] Demonstrate that $\prob{\theta} \propto 1$ can be created by using an improper Gamma distribution (i.e. a Gamma distribution with parameters that are not technically in its parameter space and thereby does not admit a distribution function).}\spc{5}
+
+\intermediatesubproblem{Write the Laplace, Haldane and Jeffrey's conjugate priors below. They are all improper.}\spc{3}
+
+%\easysubproblem{What is the equivalent of the Haldane prior in the Binomial likelihood model for the Poisson likelihood model? Use an interpretation of pseudocounts to explain.}\spc{4}
+
+%\hardsubproblem{If $\prob{\theta} = \gammanot{\alpha}{\beta}$ where $\alpha \in \naturals$, prove that prior predictive distribution is $\prob{X} = \negbin{r}{p} := \binom{x + r - 1}{r - 1}(1-p)^{x}p^r$ where $p = \beta / (\beta + 1)$ and $r = \alpha$. This is a little bit different than that posterior predictive distribution derivation we did in class but mostly the same.}\spc{12}
+
+%\intermediatesubproblem{If $\alpha \notin \naturals$, create an \qu{extended negative binomial} r.v. and find its PMF. You can copy from Wikipedia.}\spc{3}
+
+
+%\intermediatesubproblem{Why is the extended negative binomial r.v. also known as the gamma-Poisson mixture distribution? Why is it also called the \qu{overdispersed Poisson}?}\spc{2}
+
+
+
+\intermediatesubproblem{If you observe $0,3,2,4,2,6,1,0,5$, give a 90\% CR for $\theta$. Pick a principled objective (uninformative) prior.}\spc{5}
+
+\intermediatesubproblem{Using the data and the prior from (f), test $H_a: \theta < 2$.}\spc{2}
+
+\hardsubproblem{Using the data and the prior from (f), find the probability the next observation will be a 7. Leave in exact form using Table 1's notation.}\spc{4}
+
+%\easysubproblem{Use the R calculator (if you don't have it on your computer, go to \url{https://rdrr.io/snippets/}) to compute it to the nearest two significat digits.}\spc{1}
+
+%\hardsubproblem{[MA] We talked about that the negative binomial is an \qu{overdispersed} Poisson. Show that this negative binomial converges to a Poisson as $n \rightarrow \infty$ by showing PMF convergence.}\spc{12}
+
+\extracreditsubproblem{[MA] Find the joint posterior predictive distribution for $m$ future observations. I couldn't find the answer to this myself nor compute the integral.}\spc{20}
+\end{enumerate}
+
+
+\end{document}
