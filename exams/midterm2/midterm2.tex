@@ -3,7 +3,7 @@
 \include{preamble}
 
 \newtoggle{solutions}
-%\toggletrue{solutions}
+\toggletrue{solutions}
 
 
 \title{Math 341 / 641 Fall \the\year{} \\ Midterm Examination Two}
@@ -97,14 +97,14 @@ The Dunn-Sidak control threshold is $1-(1 -\text{FWER})^{1/m} = 1-(1 -0.05)^{1/1
 \subquestionwithpoints{5} Using Simes control of FWER, how many rejections would be made?
 
 \iftoggle{solutions}{\inred{
-The Simes control threshold is the number of p-values below the first crossing of the \qu{linear setup line} given by $j/m$ (where $j$ is the index of the test) with the line of the p-values. The line thus looks like 0.001, 0.002, 0.003, etc. Following that pattern, we see it crosses after the \fbox{35}th sorted p-value.
+The Simes control threshold is the number of p-values below the first crossing of the \qu{linear setup line} given by FWER$\cdot \frac{j}{m}$ (where $j$ is the index of the test) with the line of the p-values. The line thus looks like $0.05\cdot0.001, 0.05\cdot0.002, 0.05\cdot0.003$, etc. Following that pattern, we see it crosses after the $m_*=$\fbox{26}th sorted p-value.
 }}{~\spc{4}}
 
 
 \subquestionwithpoints{6} If instead of controlling FWER at 5\%, you are comfortable controlling FDR at 5\%, how many expected Type I errors are made in this family of tests?
 
 \iftoggle{solutions}{\inred{
-The FDR control is the same as the Simes control protocol. Thus since we had 35 rejections from the previous problem, we know by definition of FDR, the number of Type I errors is distributed as a Binomial(35, 0.05) whose expectation is $35\cdot 0.05 =$ \fbox{1.75}.
+The FDR control is the same as the Simes control protocol. Thus since we had $m_*=26$ rejections from the previous problem, we know by definition of FDR, the number of Type I errors is distributed as a Binomial($m_*$, FWER) rv whose expectation is $m_* \cdot \text{FWER} = 26\cdot 0.05 =$ \fbox{1.3}.
 }}{~\spc{4}}
 
 \end{enumerate}
@@ -354,6 +354,8 @@ $F^{-1}(.975)$ & 12.71 & 4.30 & 3.18 & 2.78 & 2.57 & 2.45 & 2.36 & 2.31 & 2.26 &
 
 \iftoggle{solutions}{\inred{
 
+We employ the default estimator for the mean i.e. $\thetahat := \Xbar$ so that
+
 \beqn
 CI_{\theta, 95\%} &=& \bracks{\xbar \pm t_{n-1, .975} \frac{s}{\sqrt{n}}} = \bracks{\xbar \pm t_{10, .975} \frac{s}{\sqrt{n}}} = \bracks{40.3 \pm 2.23 \frac{114.6}{\sqrt{11}}} = \bracks{-36.75, 117.35}
 \eeqn
@@ -380,8 +382,13 @@ We need to use delta method and the three theorems:
 And when using the finite approximation:
 
 \beqn
-CI_{\phi, 95\%} &\approx& \bracks{\doublehat{\phi} \pm 1.96 \abss{g'(\doublehat{\theta})} \hat{SE}\bracks{\hat{\theta}}} = \bracks{\natlog{\xbar} \pm 1.96 \oneover{\abss{\xbar}} s} = \bracks{\natlog{40.3} \pm 1.96 \frac{114.6}{40.3}} \\
-&=& \bracks{-1.88,   9.27}
+CI_{\phi, 95\%} &\approx& \bracks{\doublehat{\phi} \pm 1.96 |g'(\doublehat{\theta})| \doublehat{SE}\bracks{\hat{\theta}}} 
+\eeqn
+
+Here, $\doublehat{\theta} = \xbar$ and $\doublehat{SE}\bracks{\hat{\theta}} = \doublehat{SE}\bracks{\Xbar} = \frac{s}{\sqrt{n}}$. Substituting,
+
+\beqn
+CI_{\phi, 95\%} &\approx& \bracks{\natlog{\xbar} \pm 1.96 \oneover{\abss{\xbar}} \frac{s}{\sqrt{n}}} = \bracks{\natlog{40.3} \pm 1.96 \frac{114.6}{40.3\sqrt{11}}} = \bracks{2.02, 5.38}
 \eeqn
 
 }}{~\spc{1}}
@@ -403,7 +410,7 @@ f(\theta~|~\X) &=& \frac{\cprob{\X}{\theta} f(\theta)}{\prob{\X}} \propto \cprob
 &=& \parens{\prod_{i=1}^n \theta^{x_i} (1-\theta)^{1-x_i}} \indic{\theta \in (0,1)} \\
 &=& \theta^{\sum x_i} (1-\theta)^{\sum 1-x_i} \indic{\theta \in (0,1)} \\
 &=& \theta^{\sum x_i +1 - 1} (1-\theta)^{n-\sum x_i + 1 -1} \indic{\theta \in (0,1)} \\
-&\propto& \betanot{1 + \sum x_i}{1 + n - \sum x_i}
+&\propto& \betanot{1 + \sum_{i=1}^n x_i}{1 + n - \sum_{i=1}^n x_i}
 \eeqn
 
 }}{~\spc{1}}
