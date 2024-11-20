@@ -28,7 +28,7 @@ ggplot(illustration_data) +
 ggplot(illustration_data) + 
   geom_point(aes(x = x, y = F_H_0_x), color = "red") + 
   geom_point(aes(x = x, y = Fhathat_x), color = "blue") + 
-  geom_point(aes(x = x, y = abs_diff), color = "yellow")
+  geom_point(aes(x = x, y = abs_diff), color = "orange")
 
 d_n_hat_hat = max(abs_diff)
 d_n_hat_hat
