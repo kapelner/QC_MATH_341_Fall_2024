@@ -1,0 +1,306 @@
+\documentclass[12pt]{article}
+
+\include{preamble}
+
+\newtoggle{professormode}
+\toggletrue{professormode} %STUDENTS: DELETE or COMMENT this line
+
+
+
+\title{MATH 341/641 Fall \the\year{} Homework \#7}
+
+\author{Professor Adam Kapelner} %STUDENTS: write your name here
+
+\iftoggle{professormode}{
+\date{Due by email 11:59PM December 14 \\ \vspace{0.5cm} \small (this document last updated \today ~at \currenttime)}
+}
+
+\renewcommand{\abstractname}{Instructions and Philosophy}
+
+\begin{document}
+\maketitle
+
+\iftoggle{professormode}{
+\begin{abstract}
+The path to success in this class is to do many problems. Unlike other courses, exclusively doing reading(s) will not help. Coming to lecture is akin to watching workout videos; thinking about and solving problems on your own is the actual ``working out.''  Feel free to \qu{work out} with others; \textbf{I want you to work on this in groups.}
+
+Reading is still \textit{required}. For this homework set, review MATH 340 concepts: mixture distributions, poisson, gamma, extended negative binomial, normal, inverse gamma, students T.
+
+The problems below are color coded: \ingreen{green} problems are considered \textit{easy} and marked \qu{[easy]}; \inorange{yellow} problems are considered \textit{intermediate} and marked \qu{[harder]}, \inred{red} problems are considered \textit{difficult} and marked \qu{[difficult]} and \inpurple{purple} problems are extra credit. The \textit{easy} problems are intended to be ``giveaways'' if you went to class. Do as much as you can of the others; I expect you to at least attempt the \textit{difficult} problems. \qu{[MA]} are for those registered for 621 and extra credit otherwise.
+
+This homework is worth 100 points but the point distribution will not be determined until after the due date. See syllabus for the policy on late homework.
+
+Up to 5 points are given as a bonus if the homework is typed using \LaTeX. Links to instaling \LaTeX~and program for compiling \LaTeX~is found on the syllabus. You are encouraged to use \url{overleaf.com}. If you are handing in homework this way, read the comments in the code; there are two lines to comment out and you should replace my name with yours and write your section. The easiest way to use overleaf is to copy the raw text from hwxx.tex and preamble.tex into two new overleaf tex files with the same name. If you are asked to make drawings, you can take a picture of your handwritten drawing and insert them as figures or leave space using the \qu{$\backslash$vspace} command and draw them in after printing or attach them stapled.
+
+The document is available with spaces for you to write your answers. If not using \LaTeX, print this document and write in your answers. I do not accept homeworks which are \textit{not} on this printout. Keep this first page printed for your records.
+
+\end{abstract}
+
+\thispagestyle{empty}
+\vspace{1cm}
+NAME: \line(1,0){380}
+\clearpage
+}
+
+
+\input{R_equations_table}
+
+
+
+
+
+\problem{We now discuss the theory of the normal-normal conjugate model. Assume the DGP: $\Xoneton~|~\theta,\sigsq \iid \normnot{\theta}{\sigsq}$ and $\sigsq$ known.}
+
+\begin{enumerate}
+
+%\easysubproblem{Show that the kernel of the normal distribution is, $\prob{X_1~|~\theta,~\sigsq} \propto k(X_1~|~\theta,~\sigsq) = e^{ax} e^{-bx^2}$ and solve for the values of $a$ and $b$ as functions of $\theta$ and $\sigsq$.}\spc{3}
+
+\inthenotessubproblem{Assume $f(\theta\,|\,\sigsq) = \normnot{\mu_0}{\sigsq / n_0}$. Show that posterior distribution is normal and find its parameters.}\spc{6}
+
+
+\inthenotessubproblem{Provide pseudocount interpretations of $\mu_0$ and $n_0$.}\spc{1}
+
+\inthenotessubproblem{Find the Bayesian point estimates as function of the data and prior's hyperparameters (i.e. $\thetahathatmmse$, $\thetahathatmmae$ and $\thetahathatmap$).}\spc{2}
+
+
+\inthenotessubproblem{Show that $\thetahatmmse$ is a shrinkage estimator and find $\rho$.}\spc{2}
+
+
+\inthenotessubproblem{What is the posterior distribution under Laplace's prior of indifference?}\spc{3.5}
+
+\easysubproblem{Assuming $\sigsq = 1.3$, Laplace's prior and a dataset of $n=10$ with values 0.48  0.39  1.29  1.02  1.55 -0.22  0.01 -0.52 -1.50  0.71, provide a Bayesian point estimate.}\spc{2}
+
+\easysubproblem{Assuming the prior, $\sigsq$ and the dataset from (f), provide a 95\% CR for $\theta$.}\spc{1.5}
+
+\easysubproblem{Assuming the prior, $\sigsq$ and the dataset from (f), provide notation that calculates the $p$ value for a test of $H_a: \theta < 1$.}\spc{2.5}
+
+%\intermediatesubproblem{Rederive Jeffrey's prior. Is it proper?}\spc{5}
+
+%\intermediatesubproblem{Now let $\tau^2 := \sigsq / n_0$ which is a reparameterization from $\tau^2$ to $n_0$. Substitute this change into the posterior distribution from (b) to derive the posterior distribution under this reparemterization.}\spc{3}
+
+
+\inthenotessubproblem{Using the pseudocount interpretations of $\mu_0$ and $n_0$, what is Haldane's prior of ignorance? Is it proper?}\spc{1}
+
+
+%\easysubproblem{If the prior is $\prob{\theta} = \normnot{\mu_0}{\sigsq / n_0}$, write the integral that will compute the posterior predictive distribution $\cprob{X_*}{X, \sigsq}$ when $n_*=1$.}\spc{20}
+
+\hardsubproblem{Derive the posterior predictive distribution $f(X_*\,|\,\X, \sigsq)$ when $n_*=1$. Try to do it yourself. Use kernels. If you get stuck, look in the notes from MATH 340.}\spc{23}
+
+\end{enumerate}
+
+
+\problem{We now discuss the theory of the normal-inverse-gamma conjugate model. Assume the DGP: $\Xoneton~|~\theta,\sigsq \iid \normnot{\theta}{\sigsq}$ and $\theta$ known.}
+
+\begin{enumerate}
+
+\inthenotessubproblem{Assume the Laplace prior, $f(\sigsq\,|\,\theta) \propto \indic{\sigsq > 0}$. Show that posterior is inverse gamma and find the posterior parameters.}\spc{5}
+
+
+%\easysubproblem{Plot a few PDF's of inverse gammas with different parameters to illustrate the different possible shapes.}\spc{9}
+
+\inthenotessubproblem{Show that posterior is inverse gamma (and find the posterior parameters) if $\prob{\sigsq} = \invgammanot{\overtwo{n_0}}{\overtwo{n_0 \sigsq_0}}$.}\spc{6}
+
+
+\inthenotessubproblem{What is the pseudodata interpretation of the hyperparameters $n_0$ and $\sigsq_0$?}\spc{1}
+
+\inthenotessubproblem{Based on the pseudodata interpretation of the hyperparameters $n_0$ and $\sigsq_0$, what would Haldane's prior be and why?}\spc{2}
+
+\inthenotessubproblem{In the Laplace prior, what are the hyperparameters?}\spc{2}
+
+\hardsubproblem{Why is the Laplace prior a bad idea to use in this modeling setting?}\spc{5}
+
+\inthenotessubproblem{Provide all three Bayesian point estimates for $\sigsq$ given $\theta$.}\spc{1.5}
+
+\inthenotessubproblem{Show that the $\thetahatmmse$ is a linear shrinkage estimator. Is it valid for every inverse gamma prior?}\spc{3}
+
+\intermediatesubproblem{Show that the $\thetahathatmap$ is a linear shrinkage estimator (i.e. a linear combination of the MLE and the prior mode). Is it valid for every inverse gamma prior?}\spc{3}
+
+\inthenotessubproblem{What is the predictive distribution $f(X^*\,|\,\X, \theta)$ if $n^*=1$ and $\theta \sim \invgammanot{\overtwo{n_0}}{\overtwo{n_0 \sigsq_0}}$?}\spc{1}
+
+
+\intermediatesubproblem{Find a 95\% posterior predictive interval (PI) for the next observation.}\spc{2}
+
+\end{enumerate}
+
+\problem This question is about building models for the prices of cars sold at dealerships.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=2.7in]{accord.jpg}
+\end{figure}
+
+The 2016 Honda Accord sells at many different dealerships in New York City but sell it for more and some for less. We'll assume that the final negotiated price is distributed normally because it's most likely the sum of many different negotiation factors.
+
+Our goal here is to determine the mean price at a certain car dealership in Astoria that people have been saying is \qu{too cheap} and if it's too cheap, Honda corporate may wish to investigate.
+
+\begin{enumerate}
+
+
+
+\intermediatesubproblem{Assume that each Accord's price at the Astoria dealership is normal and $\iid$ given the parameters. The nationwide variance for a Honda Accord selling price we're going to assume is $\sigsq = \$1000^2$. You and your colleague go down to the Astoria dealership undercover and ask to buy a Honda. After much negotiation, they will sell it to you for \$19,000 and they will sell it to your colleague for \$18,200 but they sense something suspicious so you hesitate to send another one of your guys down there to do another faux negotiation. Unfortunately, we're going to have to estimate the mean with just $x_1=19000$ and $x_2 = 18200$. What is your best guess of the mean price of Honda Accords sold here? Assume your prior from (a).}\spc{2}
+
+\intermediatesubproblem{Based on this data, we wish to test if this dealership is selling Honda Accords below the manufacturer sugested retail price (MSRP) of \$22,205 --- if so, they would be subject to a fine. Calculate a $p$-value for this test below by using notation from Table~\ref{tab:eqs} but do not solve numerically.}\spc{4}
+
+\hardsubproblem{What is the probability I get a really good deal --- that I can buy a car from these Astoria people for under \$17,000? Use the notation from Table~\ref{tab:eqs} but do not solve numerically.}\spc{3}
+
+
+
+\end{enumerate}
+
+\problem This question is about building a model to understand the accuracy of this beverage-filling machine pictured below:
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=3.7in]{milk_filling.jpg}
+\end{figure}
+
+This machine fills 12oz plastic bottles. There is no doubt the mean amount of liquid filled per bottle is 12oz as been determined by the final weights of pallets of filled bottles. But we are uncertain about the variance. We decide to do an experiment and select $n = 21$ bottles at random and measure the amount of liquid in each bottle. Here are the measurements:
+
+\begin{verbatim}
+                   12.00 12.05 11.98 11.66 12.05 11.92 12.03
+                   12.23 12.36 11.57 12.04 12.10 11.99 12.47
+                   12.57 11.83 12.20 12.48 12.14 12.14 12.74
+\end{verbatim}
+
+Assume an $\iid$ normal model.
+
+\begin{enumerate}
+\easysubproblem{Find the MLE for $\sigsq$.}\spc{2}
+
+\intermediatesubproblem{Under the Jeffrey's prior for $\sigsq$, find the posterior of $\sigsq$ by solving for the parameter values.}\spc{2}
+
+\intermediatesubproblem{Write an expression for the 95\% left-sided credible region for $\sigsq$. This is a one sided CR which will give the upper bound for the machine's variance (since the lower bound for $\sigsq$ is zero).}\spc{2}
+
+
+\intermediatesubproblem{The bottles are actually 13.5oz. This means that you wish to test if $\sigsq > 0.352$ for if so, about 1/100,000 of the bottles will be overfull and that's the tolerance of the factory. Write an expression for the Bayesian p-value of this test.}\spc{3}
+
+
+\intermediatesubproblem{Write an expression for the probability the next bottle has more than 13oz of liquid.}\spc{2}
+
+%\intermediatesubproblem{Write an expression for the 95\% posterior predictive interval (PI) for the amount of liquid in the next bottle.}\spc{3}
+\end{enumerate}
+
+
+\problem{Now we will move to the Bayesian normal-normal model for estimating both the mean and variance and demonstrate similarities with the classical results.}
+
+\begin{enumerate}
+
+\inthenotessubproblem{If $\Xoneton \iid \normnot{\theta}{\sigsq}$ with $\theta, \sigsq$ both known, find the kernel of the posterior if $f(\theta,~\sigsq) \propto \oneover{\sigsq}$. Use the substitution that we made in class:\\ $\sum_{i=1}^n (x_i - \theta)^2 = (n-1)s^2 + n(\xbar - \theta)^2$ where $s^2 := \oneover{n-1} \sum_{i=1}^n (x_i -\xbar)^2$. }\spc{8}
+
+
+\inthenotessubproblem{Using Bayes Rule, break up the posterior into two pieces as we did in class. How are those two pieces distributed?}\spc{3}
+
+\hardsubproblem{Using Bayes Rule, partition the posterior into two pieces differently than the previous question. How are those two pieces distributed?}\spc{3}
+
+\intermediatesubproblem{Using your answer from (b), explain in English how you can create $S$ samples from the posterior distribution that look like $\braces{\bracks{\theta_1, \sigsq_1}, \bracks{\theta_2, \sigsq_2}, \ldots, \bracks{\theta_S, \sigsq_S}}$.}\spc{8}
+
+\hardsubproblem{Using these samples, how would you estimate $\cexpe{\theta}{\X}$ and $\cexpe{\sigsq}{\X}$?}\spc{5}
+
+\hardsubproblem{Using these samples, how would you estimate a 95\% CR for $\theta$?}\spc{6}
+
+\hardsubproblem{Using these samples, how would you obtain a $p$-val for testing if $\sigsq > 1.364$?}\spc{6}
+
+\hardsubproblem{[MA] Using these samples, how would you estimate $\corr{\theta~|~\X,~\sigsq~|~\X}$ i.e. the correlation between the posterior distributions of the two parameters?}\spc{7}
+
+%\easysubproblem{If $\Xoneton~|~\theta, \sigsq \iid \normnot{\theta}{\sigsq}$ and $\theta \sim \normnot{\mu_0}{\tausq}$ write the distribution of $\theta~|~X,\sigsq$. Hint: it's in the notes and it was HW6 6(d). Note this problem is independent of the other problems.}\spc{5}
+
+%\easysubproblem{Find $\cprob{\theta}{X,~\sigsq}$ by using the full posterior kernel from (a) and then conditioning on $\sigsq$. You should get the same answer as we did before the midterm.}\spc{3}
+
+%\easysubproblem{Find $\cprob{\sigsq}{X,~\theta}$ by using the full posterior kernel from (a)  and then conditioning on $\theta$. You should get the same answer as we did before the midterm.}\spc{4}
+
+%\intermediatesubproblem{Show that $\cprob{\sigsq}{X}$ is an inverse gamma distribution and find its parameters.}\spc{4}
+
+
+
+%\intermediatesubproblem{How does this compare to 2(j)? Note that $X \sim \invgammanot{\alpha}{\beta}$ then $cX \sim \invgammanot{\alpha}{\frac{\beta}{c}}$.}\spc{2}
+
+
+%\extracreditsubproblem{Prove what you wrote in the previous question: $\cprob{X^*}{X}$ is the non-standard $T$ distribution and find its parameters.}\spc{0}
+
+
+\hardsubproblem{Explain how to sample from the posterior predictive distribution of for the next observation.}\spc{9}
+
+
+\inthenotessubproblem{[MA] Show that $\cprob{\theta}{X}$ is a non-standard $T$ distribution and find its parameters. Assume the prior $\prob{\theta,~\sigsq} \propto \oneover{\sigsq}$ .}\spc{8.5}
+
+
+\inthenotessubproblem{[MA] Show that $\cprob{\sigsq}{X}$ is an inverse gamma and find its parameters. Assume the prior $\prob{\theta,~\sigsq} \propto \oneover{\sigsq}$.}\spc{8.5}
+
+\easysubproblem{How is $X^*\,|\,\X$ distributed assuming the prior $f(\theta, \sigsq) \propto \oneover{\sigsq}$?}\spc{1}
+
+\intermediatesubproblem{[MA] Now consider the informative conjugate prior of $\theta\,|\,\sigsq \sim \normnot{\mu_0}{\frac{\sigsq}{m}}$ and $\sigsq \sim \invgammanot{\overtwo{n_0}}{\overtwo{n_0 \sigsq_0}}$. Find the posterior and demonstrate it that the normal-inverse gamma is conjugate for the normal likelihood with both mean and variance unknown. This is what I did \emph{not} do in class.}\spc{8.5}
+
+
+\inthenotessubproblem{Now consider the informative conjugate prior of $\theta \sim \normnot{\mu_0}{\tau^2}$ independent of $\sigsq \sim \invgammanot{\overtwo{n_0}}{\overtwo{n_0 \sigsq_0}}$. Find the kernel of the posterior and demonstrate that the $\cprob{\theta}{\X, \sigsq}$ is normal but the $\cprob{\sigsq}{\X}$ piece is not any known distribution.}\spc{8.5}
+\end{enumerate}
+
+\problem{We model the returns of S\&P 500 here.}
+
+\begin{enumerate}
+\easysubproblem{Below are the 16,428 daily returns (as a percentage) of the S\&P 500 dating back to January 4, 1950 and the code used to generate it. Does the data look normal? Yes/no}\spc{0}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=7in]{daily_returns}
+\end{figure}
+
+%\begin{verbatim}
+%X = read.csv('sp_tot_ret_price_1950.csv')
+%n = nrow(X)
+%n
+%hist(X[,4], br = 1000, 
+%  main = 'daily returns (as a percentage) of the S&P 500')
+%\end{verbatim}
+
+\intermediatesubproblem{Do you think the data is $\iid$? Explain.}\spc{1}
+
+\intermediatesubproblem{Assume $\iid$ normal data regardless of what you wrote in (a) and (b). The sample average is $\xbar = 0.0003415$ and the sample standard deviation is $s = 0.0096$. Under an objective prior, give a 95\% credible region for the true mean daily return.}\spc{4}
+
+\hardsubproblem{Give a 95\% predictive region for \emph{tomorrow's} return.}\spc{4}
+
+\end{enumerate}
+
+%\problem{These are questions which introduce Gibbs Sampling.}
+%
+%\begin{enumerate}
+%\easysubproblem{Outline the systematic sweep Gibbs Sampler algorithm below (in your notes).}\spc{8}
+%
+%\extracreditsubproblem{Under what conditions does this algorithm converge?}\spc{0}
+%
+%\easysubproblem{Pretend you are estimating $\cprob{\theta_1,~\theta_2}{X}$ and the joint posterior looks like the picture below where the $x$ axis is $\theta_1$ and the $y$ axis is $\theta_2$ and darker colors indicate higher probability. Begin at $\bracks{\theta_1,\theta_2} = \bracks{0.5,0.5}$ and simulate 5 iterations of the systematic sweep Gibbs sampling algorithm by drawing new points on the plot (just as we did in class).}
+%
+%
+%\begin{figure}[htp]
+%\centering
+%\includegraphics[width=3.5in]{contour.png}
+%\end{figure}
+%\end{enumerate}
+%
+%
+%\problem{These are questions about the change point model and the Gibbs sampler to draw inference for its parameters. You will have to use R to do this question. If you do not have it installed on your computer, you can use R online without installing anything by using a site like \href{https://hub.gke.mybinder.org/user/binder-examples-r-x4nbe04q/notebooks/blank.ipynb}{jupyter}. You copy code into the black box and click the \qu{run} button atop. Then you enter more code into the next box and click \qu{run} again, etc.}
+%
+%\begin{enumerate}
+%
+%\easysubproblem{Consider the change point Poisson model we looked at in class. We have $m$ exchangeable Poisson r.v.'s with parameter $\lambda_1$ followed by $n-m$ exchangeable Poisson r.v.'s with parameter $\lambda_2$. Both rate parameters and the value of $m$ are unknown so the parameter space is 3-dimensional. Write the likelihood below.}\spc{4}
+%
+%\easysubproblem{Consider the model in (a) where $\lambda_1 = 2$ and $\lambda_2 = 4$ and $m=10$ and $n=30$. Run the code on lines 1--14 of the code at the link \href{https://github.com/kapelner/QC_Math_341_Spring_2021/blob/main/lectures/lec23_demos/poisson_change_point/code.R}{here} by copying them from the website and pasting them into an R console. This will plot a realization of the data with those parameters. Can you identify the change point visually?}\spc{1}
+%
+%\easysubproblem{Consider the model in (a) but we are blinded to the true values of the parameters given in (b) and we wish to estimate them via a Gibbs sampler. Run the code on lines 16--78 of the code at the link \href{https://github.com/kapelner/QC_Math_341_Spring_2021/blob/main/lectures/lec23_demos/poisson_change_point/code.R}{here} which will run 10,000 iterations. What iteration number do you think the sampler converged?}\spc{1}
+%
+%\easysubproblem{Now we wish to assess autocorrelation among the chains from the Gibbs sampler run in (d). Run the code on lines 79--89 of the code at the link \href{https://github.com/kapelner/QC_Math_341_Spring_2021/blob/main/lectures/lec23_demos/poisson_change_point/code.R}{here}. What do we mod our chains by to thin them out so the chains represent independent samples?}\spc{1}
+%
+%\easysubproblem{Run the code on lines 91--121 of the code at the link \href{https://github.com/kapelner/QC_Math_341_Spring_2021/blob/main/lectures/lec23_demos/poisson_change_point/code.R}{here} which will first burn and thin the chains. Explain these three plots. What distributions do these frequency histograms approximate? You must have $\prob{\text{something}}$ in your answer. What are the blue lines? What are the red lines? What are the grey lines? Read the code if you have to for the answers.}\spc{4}
+%
+%\hardsubproblem{Test the following hypothesis: $H_0: m \leq 15$ by approximating the $p$-value from one of the plots in (e).}\spc{4}
+%
+%\hardsubproblem{[M.A.] Explain a procedure to test $H_0: \lambda_1 = \lambda_2$. You can use the plots if you wish, but you do not have to.}\spc{8}
+%
+%\hardsubproblem{What exactly would come from $\cprob{X^*}{X}$ in the context of this problem? Assume $X^*$ is the same dimension of $X$ (in our toy example, $n=30$). Explain in full detail. Be careful!}\spc{4}
+%
+%\extracreditsubproblem{Explain how you would estimate $\cov{\lambda_1}{\lambda_2}$ and what do you think this estimate will be close to?}\spc{7}
+%
+%
+%\end{enumerate}
+\end{document}
+
+
