@@ -3,7 +3,7 @@
 \include{preamble}
 
 \newtoggle{solutions}
-%\toggletrue{solutions}
+\toggletrue{solutions}
 
 \newcommand{\instr}{\small Your answer will consist of a lowercase string (e.g. \texttt{aebgd}) where the order of the letters does not matter. \normalsize}
 
@@ -82,7 +82,7 @@ You can assume both samples are drawn using an SRS.
     \item $X_{1,1}, \ldots, X_{1,n_1} \iid \normnot{\theta_1}{\sigsq_1}$,\quad $X_{2,1}, \ldots, X_{2,n_2} \iid \normnot{\theta_2}{\sigsq_2}$
     \item $\sigsq_1 = \sigsq_2$ but its value is unknown
     \item $H_0: \theta_1 - \theta_2 = 0$ or $H_0: \theta_1 = \theta_2$
-    \item $\displaystyle\frac{\xbar_1 - \xbar_2}{\sqrt{\frac{s^2_1}{n_1} + \frac{s^2_2}{n_2}}}$
+    \item $\displaystyle\frac{\xbar_1 - \xbar_2}{\sqrt{\displaystyle\frac{(n_1-1)s^2_1 + (n_2-1) s^2_2}{n_1 + n_2 -2}\parens{\frac{1}{n_1} + \frac{1}{n_2}}}}$
 \end{enumerate}
 }}{
 \begin{enumerate}[(1)]
