@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.30)  18 DEC 2024 17:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.30)  18 DEC 2024 17:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -630,23 +630,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 48--54
  []
 
 [2] [3] [4] [5]
-Overfull \hbox (45.9908pt too wide) in alignment at lines 273--273
+Overfull \hbox (45.9908pt too wide) in alignment at lines 274--274
  [][][] []
  []
 
 [6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 341--342
+Underfull \hbox (badness 10000) in paragraph at lines 342--343
 
  []
 
 [8]
 LaTeX Font Info:    Trying to load font information for U+dsrom on input line 3
-90.
+91.
 
 (C:\Users\Adam\AppData\Local\Programs\MiKTeX\tex/latex/doublestroke\udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
 )
-Overfull \hbox (2.704pt too wide) in alignment at lines 412--412
+Overfull \hbox (2.704pt too wide) in alignment at lines 413--413
  [][][] []
  []
 
@@ -691,7 +691,7 @@ Adam/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C
 :/Users/Adam/AppData/Local/Programs/MiKTeX/fonts/type1/public/doublestroke/dsro
 m12.pfb><C:/Users/Adam/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
 s/symbols/msbm10.pfb>
-Output written on final.pdf (10 pages, 287757 bytes).
+Output written on final.pdf (10 pages, 287748 bytes).
 PDF statistics:
  222 PDF objects out of 1000 (max. 8388607)
  61 named destinations out of 1000 (max. 500000)

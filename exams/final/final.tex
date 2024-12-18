@@ -221,9 +221,10 @@ AIC &=& -2\ell\parens{\doublehat{\theta}^{MLE}, \doublehat{\sigsq}^{MLE}\,;\,\x}
 &=& -2\natlog{\prod_{i=1}^n \oneover{\sqrt{2\pi \doublehat{\sigsq}^{MLE}}} e^{- 1/\parens{2 \doublehat{\sigsq}^{MLE}}} (x_i - \doublehat{\theta}^{MLE})^2}
  + 2k\\
 &=& n\natlog{2\pi} + n \natlog{\doublehat{\sigsq}^{MLE}} + \inverse{\doublehat{\sigsq}^{MLE}} \sum_{i=1}^n  (x_i - \xbar)^2 + 2k \\
-&=& n\natlog{2\pi} + n \natlog{\doublehat{\sigsq}^{MLE}} + \frac{(n-1)s^2}{\doublehat{\sigsq}^{MLE}} + 2k \\
-&=& 50 \natlog{6.283} + 50 \natlog{13.475} + \frac{49 \cdot 13.75}{13.475} + 2 \cdot 2 \\
-&=& 275.9
+&=& n\natlog{2\pi \doublehat{\sigsq}^{MLE}} + \frac{(n-1)s^2}{\frac{n-1}{n} s^2} + 2k \\
+&=& 50 \natlog{6.283 \cdot 13.475} + 50 + 2 \cdot 2 \\
+&=& 50 (\natlog{6.283 \cdot 13.475} + 1) + 4 \\
+&=& 275.8
 \eeqn
 
 }}{~\spc{20}} \pagebreak
